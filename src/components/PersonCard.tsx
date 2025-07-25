@@ -90,16 +90,6 @@ export const PersonCard = ({ person, className = "" }: PersonCardProps) => {
         }
         title={`${person.firstname} ${person.lastname}`}
         subheader={person.addressTitle}
-        action={
-          person.displayRoleName && (
-            <Chip 
-              label={person.displayRoleName} 
-              size="small" 
-              color="primary" 
-              variant="outlined"
-            />
-          )
-        }
         sx={{ 
           pb: 2,
           backgroundColor: 'background.paper',
@@ -108,6 +98,17 @@ export const PersonCard = ({ person, className = "" }: PersonCardProps) => {
       />
 
       <CardContent sx={{ pt: 0 }}>
+        {/* Role */}
+        {person.displayRoleName && (
+          <Box mb={2}>
+            <Chip 
+              label={person.displayRoleName} 
+              size="small" 
+              color="primary" 
+              variant="outlined"
+            />
+          </Box>
+        )}
         {/* Contact Information */}
         <Box mb={3}>
           {person.email && (
