@@ -1,4 +1,5 @@
 import { PersonCard } from "@/components/PersonCard";
+import { Box, Typography, Container, Paper } from '@mui/material';
 
 const Index = () => {
   // Sample person data for demonstration
@@ -38,44 +39,65 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background py-12 px-4">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">Person Card Component</h1>
-          <p className="text-xl text-muted-foreground">
-            Beautiful personal information display using shadcn/ui components
-          </p>
-        </div>
+    <Box 
+      sx={{ 
+        minHeight: '100vh', 
+        bgcolor: 'background.default',
+        py: 6,
+        px: 2
+      }}
+    >
+      <Container maxWidth="lg">
+        <Box sx={{ textAlign: 'center', mb: 6 }}>
+          <Typography variant="h3" component="h1" gutterBottom sx={{ fontWeight: 'bold' }}>
+            Person Card Component
+          </Typography>
+          <Typography variant="h6" color="text.secondary">
+            Beautiful personal information display using Material-UI components
+          </Typography>
+        </Box>
         
-        <div className="flex justify-center">
+        <Box sx={{ display: 'flex', justifyContent: 'center', mb: 8 }}>
           <PersonCard person={samplePerson} />
-        </div>
+        </Box>
         
-        <div className="mt-12 text-center">
-          <h2 className="text-2xl font-semibold mb-4">Features</h2>
-          <div className="grid md:grid-cols-3 gap-6 text-left">
-            <div className="p-4 rounded-lg bg-card border">
-              <h3 className="font-medium mb-2">Contact Information</h3>
-              <p className="text-sm text-muted-foreground">
-                Displays email, phone, mobile, and website with clickable links
-              </p>
-            </div>
-            <div className="p-4 rounded-lg bg-card border">
-              <h3 className="font-medium mb-2">Avatar & Role</h3>
-              <p className="text-sm text-muted-foreground">
-                Shows profile picture with fallback initials and role badge
-              </p>
-            </div>
-            <div className="p-4 rounded-lg bg-card border">
-              <h3 className="font-medium mb-2">Metadata</h3>
-              <p className="text-sm text-muted-foreground">
-                Creation date and permission group count with action buttons
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        <Box sx={{ mt: 8 }}>
+          <Typography variant="h4" component="h2" gutterBottom sx={{ textAlign: 'center', mb: 4 }}>
+            Features
+          </Typography>
+          <Box sx={{ 
+            display: 'grid', 
+            gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
+            gap: 3
+          }}>
+            <Paper sx={{ p: 3, textAlign: 'left' }}>
+              <Typography variant="h6" gutterBottom sx={{ fontWeight: 500 }}>
+                Contact Information
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Displays email, phone, mobile, and website with clickable links and Material-UI icons
+              </Typography>
+            </Paper>
+            <Paper sx={{ p: 3, textAlign: 'left' }}>
+              <Typography variant="h6" gutterBottom sx={{ fontWeight: 500 }}>
+                Avatar & Role
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Shows profile picture with fallback initials and role badge using MUI components
+              </Typography>
+            </Paper>
+            <Paper sx={{ p: 3, textAlign: 'left' }}>
+              <Typography variant="h6" gutterBottom sx={{ fontWeight: 500 }}>
+                Metadata & Actions
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Creation date and permission count with Material-UI styled action buttons
+              </Typography>
+            </Paper>
+          </Box>
+        </Box>
+      </Container>
+    </Box>
   );
 };
 

@@ -1,8 +1,27 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { Mail, Phone, Smartphone, Globe, Calendar, User } from "lucide-react";
+import React from 'react';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  Avatar,
+  Chip,
+  Typography,
+  Button,
+  Box,
+  Divider,
+  IconButton,
+  Link
+} from '@mui/material';
+import {
+  Email,
+  Phone,
+  Smartphone,
+  Language,
+  CalendarToday,
+  Person,
+  Visibility,
+  Message
+} from '@mui/icons-material';
 
 interface PersonData {
   id: string;
@@ -48,119 +67,170 @@ export const PersonCard = ({ person, className = "" }: PersonCardProps) => {
   const permissionCount = Object.keys(person.additionalData?.permissions || {}).length;
 
   return (
-    <Card className={`w-full max-w-md mx-auto hover:shadow-lg transition-shadow duration-200 ${className}`}>
-      <CardHeader className="pb-4">
-        <div className="flex items-center space-x-4">
-          <Avatar className="h-16 w-16">
-            <AvatarImage 
-              src={person.additionalData?.avatar} 
-              alt={`${person.firstname} ${person.lastname}`} 
-            />
-            <AvatarFallback className="text-lg font-semibold">
-              {getInitials(person.firstname, person.lastname)}
-            </AvatarFallback>
+    <Card 
+      className={className}
+      sx={{ 
+        maxWidth: 400, 
+        mx: 'auto',
+        '&:hover': {
+          boxShadow: 6,
+        },
+        transition: 'box-shadow 0.3s ease-in-out'
+      }}
+      elevation={3}
+    >
+      <CardHeader sx={{ pb: 2 }}>
+        <Box display="flex" alignItems="center" gap={2}>
+          <Avatar 
+            src={person.additionalData?.avatar} 
+            alt={`${person.firstname} ${person.lastname}`}
+            sx={{ width: 64, height: 64, fontSize: '1.5rem', fontWeight: 600 }}
+          >
+            {getInitials(person.firstname, person.lastname)}
           </Avatar>
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 mb-1">
-              {person.addressTitle && (
-                <span className="text-sm text-muted-foreground">{person.addressTitle}</span>
-              )}
-            </div>
-            <h3 className="text-xl font-semibold text-foreground truncate">
-              {person.firstname} {person.lastname}
-            </h3>
-            {person.displayRoleName && (
-              <Badge variant="secondary" className="mt-1">
-                {person.displayRoleName}
-              </Badge>
+          <Box flex={1} minWidth={0}>
+            {person.addressTitle && (
+              <Typography variant="caption" color="text.secondary" display="block">
+                {person.addressTitle}
+              </Typography>
             )}
-          </div>
-        </div>
+            <Typography variant="h6" component="h3" noWrap sx={{ fontWeight: 600 }}>
+              {person.firstname} {person.lastname}
+            </Typography>
+            {person.displayRoleName && (
+              <Chip 
+                label={person.displayRoleName} 
+                size="small" 
+                color="primary" 
+                variant="outlined"
+                sx={{ mt: 0.5 }}
+              />
+            )}
+          </Box>
+        </Box>
       </CardHeader>
 
-      <CardContent className="space-y-4">
+      <CardContent sx={{ pt: 0 }}>
         {/* Contact Information */}
-        <div className="space-y-3">
+        <Box mb={3}>
           {person.email && (
-            <div className="flex items-center space-x-3 text-sm">
-              <Mail className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-              <a 
+            <Box display="flex" alignItems="center" gap={1.5} mb={1.5}>
+              <Email fontSize="small" color="action" />
+              <Link 
                 href={`mailto:${person.email}`}
-                className="text-foreground hover:text-primary transition-colors truncate"
+                color="inherit"
+                underline="hover"
+                sx={{ 
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  '&:hover': { color: 'primary.main' }
+                }}
               >
-                {person.email}
-              </a>
-            </div>
+                <Typography variant="body2">{person.email}</Typography>
+              </Link>
+            </Box>
           )}
           
           {person.phone && (
-            <div className="flex items-center space-x-3 text-sm">
-              <Phone className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-              <a 
+            <Box display="flex" alignItems="center" gap={1.5} mb={1.5}>
+              <Phone fontSize="small" color="action" />
+              <Link 
                 href={`tel:${person.phone}`}
-                className="text-foreground hover:text-primary transition-colors"
+                color="inherit"
+                underline="hover"
+                sx={{ '&:hover': { color: 'primary.main' } }}
               >
-                {person.phone}
-              </a>
-            </div>
+                <Typography variant="body2">{person.phone}</Typography>
+              </Link>
+            </Box>
           )}
           
           {person.mobile && (
-            <div className="flex items-center space-x-3 text-sm">
-              <Smartphone className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-              <a 
+            <Box display="flex" alignItems="center" gap={1.5} mb={1.5}>
+              <Smartphone fontSize="small" color="action" />
+              <Link 
                 href={`tel:${person.mobile}`}
-                className="text-foreground hover:text-primary transition-colors"
+                color="inherit"
+                underline="hover"
+                sx={{ '&:hover': { color: 'primary.main' } }}
               >
-                {person.mobile}
-              </a>
-            </div>
+                <Typography variant="body2">{person.mobile}</Typography>
+              </Link>
+            </Box>
           )}
           
           {person.url && (
-            <div className="flex items-center space-x-3 text-sm">
-              <Globe className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-              <a 
+            <Box display="flex" alignItems="center" gap={1.5} mb={1.5}>
+              <Language fontSize="small" color="action" />
+              <Link 
                 href={person.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-foreground hover:text-primary transition-colors truncate"
+                color="inherit"
+                underline="hover"
+                sx={{ 
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  '&:hover': { color: 'primary.main' }
+                }}
               >
-                {person.url}
-              </a>
-            </div>
+                <Typography variant="body2">{person.url}</Typography>
+              </Link>
+            </Box>
           )}
-        </div>
+        </Box>
+
+        <Divider sx={{ mb: 2 }} />
 
         {/* Metadata */}
-        <div className="pt-4 border-t border-border">
-          <div className="grid grid-cols-2 gap-4 text-xs text-muted-foreground">
-            <div className="flex items-center space-x-2">
-              <Calendar className="h-3 w-3" />
-              <div>
-                <div className="font-medium">Created</div>
-                <div>{formatDate(person.created)}</div>
-              </div>
-            </div>
-            <div className="flex items-center space-x-2">
-              <User className="h-3 w-3" />
-              <div>
-                <div className="font-medium">Permissions</div>
-                <div>{permissionCount} groups</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Box display="flex" gap={2} sx={{ mb: 2 }}>
+          <Box flex={1}>
+            <Box display="flex" alignItems="center" gap={1}>
+              <CalendarToday sx={{ fontSize: 16, color: 'text.secondary' }} />
+              <Box>
+                <Typography variant="caption" color="text.secondary" fontWeight={500}>
+                  Created
+                </Typography>
+                <Typography variant="body2" fontSize="0.75rem">
+                  {formatDate(person.created)}
+                </Typography>
+              </Box>
+            </Box>
+          </Box>
+          <Box flex={1}>
+            <Box display="flex" alignItems="center" gap={1}>
+              <Person sx={{ fontSize: 16, color: 'text.secondary' }} />
+              <Box>
+                <Typography variant="caption" color="text.secondary" fontWeight={500}>
+                  Permissions
+                </Typography>
+                <Typography variant="body2" fontSize="0.75rem">
+                  {permissionCount} groups
+                </Typography>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
 
         {/* Action Buttons */}
-        <div className="flex gap-2 pt-2">
-          <Button variant="outline" size="sm" className="flex-1">
+        <Box display="flex" gap={1} pt={1}>
+          <Button 
+            variant="outlined" 
+            size="small" 
+            startIcon={<Visibility />}
+            sx={{ flex: 1 }}
+          >
             View Profile
           </Button>
-          <Button variant="default" size="sm" className="flex-1">
+          <Button 
+            variant="contained" 
+            size="small" 
+            startIcon={<Message />}
+            sx={{ flex: 1 }}
+          >
             Contact
           </Button>
-        </div>
+        </Box>
       </CardContent>
     </Card>
   );
