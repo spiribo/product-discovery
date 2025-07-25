@@ -1,27 +1,19 @@
 import React from 'react';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  Avatar,
-  Chip,
-  Typography,
-  Button,
-  Box,
-  Divider,
-  IconButton,
-  Link
-} from '@mui/material';
-import {
-  Email,
-  Phone,
-  Smartphone,
-  Language,
-  CalendarToday,
-  Person,
-  Visibility,
-  Message
-} from '@mui/icons-material';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
+import { 
+  Mail, 
+  Phone, 
+  Smartphone, 
+  Globe, 
+  Calendar, 
+  User, 
+  Eye, 
+  MessageCircle 
+} from 'lucide-react';
 
 interface PersonData {
   id: string;
@@ -67,170 +59,140 @@ export const PersonCard = ({ person, className = "" }: PersonCardProps) => {
   const permissionCount = Object.keys(person.additionalData?.permissions || {}).length;
 
   return (
-    <Card 
-      className={className}
-      sx={{ 
-        maxWidth: 400, 
-        mx: 'auto',
-        '&:hover': {
-          boxShadow: 6,
-        },
-        transition: 'box-shadow 0.3s ease-in-out'
-      }}
-      elevation={3}
-    >
-      <CardHeader sx={{ pb: 2 }}>
-        <Box display="flex" alignItems="center" gap={2}>
-          <Avatar 
-            src={person.additionalData?.avatar} 
-            alt={`${person.firstname} ${person.lastname}`}
-            sx={{ width: 64, height: 64, fontSize: '1.5rem', fontWeight: 600 }}
-          >
-            {getInitials(person.firstname, person.lastname)}
+    <Card className={`w-full max-w-md mx-auto hover:shadow-lg transition-shadow duration-300 ${className}`}>
+      <CardHeader className="pb-4">
+        <div className="flex items-center gap-4">
+          <Avatar className="w-16 h-16">
+            <AvatarImage 
+              src={person.additionalData?.avatar} 
+              alt={`${person.firstname} ${person.lastname}`}
+            />
+            <AvatarFallback className="text-lg font-semibold">
+              {getInitials(person.firstname, person.lastname)}
+            </AvatarFallback>
           </Avatar>
-          <Box flex={1} minWidth={0}>
+          <div className="flex-1 min-w-0">
             {person.addressTitle && (
-              <Typography variant="caption" color="text.secondary" display="block">
+              <p className="text-sm text-muted-foreground mb-1">
                 {person.addressTitle}
-              </Typography>
+              </p>
             )}
-            <Typography variant="h6" component="h3" noWrap sx={{ fontWeight: 600 }}>
+            <h3 className="text-lg font-semibold truncate">
               {person.firstname} {person.lastname}
-            </Typography>
+            </h3>
             {person.displayRoleName && (
-              <Chip 
-                label={person.displayRoleName} 
-                size="small" 
-                color="primary" 
-                variant="outlined"
-                sx={{ mt: 0.5 }}
-              />
+              <Badge variant="outline" className="mt-1">
+                {person.displayRoleName}
+              </Badge>
             )}
-          </Box>
-        </Box>
+          </div>
+        </div>
       </CardHeader>
 
-      <CardContent sx={{ pt: 0 }}>
+      <CardContent className="pt-0">
         {/* Contact Information */}
-        <Box mb={3}>
+        <div className="space-y-3 mb-6">
           {person.email && (
-            <Box display="flex" alignItems="center" gap={1.5} mb={1.5}>
-              <Email fontSize="small" color="action" />
-              <Link 
+            <div className="flex items-center gap-3">
+              <Mail className="w-4 h-4 text-muted-foreground" />
+              <a 
                 href={`mailto:${person.email}`}
-                color="inherit"
-                underline="hover"
-                sx={{ 
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  '&:hover': { color: 'primary.main' }
-                }}
+                className="text-sm hover:text-primary transition-colors truncate"
               >
-                <Typography variant="body2">{person.email}</Typography>
-              </Link>
-            </Box>
+                {person.email}
+              </a>
+            </div>
           )}
           
           {person.phone && (
-            <Box display="flex" alignItems="center" gap={1.5} mb={1.5}>
-              <Phone fontSize="small" color="action" />
-              <Link 
+            <div className="flex items-center gap-3">
+              <Phone className="w-4 h-4 text-muted-foreground" />
+              <a 
                 href={`tel:${person.phone}`}
-                color="inherit"
-                underline="hover"
-                sx={{ '&:hover': { color: 'primary.main' } }}
+                className="text-sm hover:text-primary transition-colors"
               >
-                <Typography variant="body2">{person.phone}</Typography>
-              </Link>
-            </Box>
+                {person.phone}
+              </a>
+            </div>
           )}
           
           {person.mobile && (
-            <Box display="flex" alignItems="center" gap={1.5} mb={1.5}>
-              <Smartphone fontSize="small" color="action" />
-              <Link 
+            <div className="flex items-center gap-3">
+              <Smartphone className="w-4 h-4 text-muted-foreground" />
+              <a 
                 href={`tel:${person.mobile}`}
-                color="inherit"
-                underline="hover"
-                sx={{ '&:hover': { color: 'primary.main' } }}
+                className="text-sm hover:text-primary transition-colors"
               >
-                <Typography variant="body2">{person.mobile}</Typography>
-              </Link>
-            </Box>
+                {person.mobile}
+              </a>
+            </div>
           )}
           
           {person.url && (
-            <Box display="flex" alignItems="center" gap={1.5} mb={1.5}>
-              <Language fontSize="small" color="action" />
-              <Link 
+            <div className="flex items-center gap-3">
+              <Globe className="w-4 h-4 text-muted-foreground" />
+              <a 
                 href={person.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                color="inherit"
-                underline="hover"
-                sx={{ 
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  '&:hover': { color: 'primary.main' }
-                }}
+                className="text-sm hover:text-primary transition-colors truncate"
               >
-                <Typography variant="body2">{person.url}</Typography>
-              </Link>
-            </Box>
+                {person.url}
+              </a>
+            </div>
           )}
-        </Box>
+        </div>
 
-        <Divider sx={{ mb: 2 }} />
+        <Separator className="mb-4" />
 
         {/* Metadata */}
-        <Box display="flex" gap={2} sx={{ mb: 2 }}>
-          <Box flex={1}>
-            <Box display="flex" alignItems="center" gap={1}>
-              <CalendarToday sx={{ fontSize: 16, color: 'text.secondary' }} />
-              <Box>
-                <Typography variant="caption" color="text.secondary" fontWeight={500}>
+        <div className="flex gap-4 mb-4">
+          <div className="flex-1">
+            <div className="flex items-center gap-2">
+              <Calendar className="w-4 h-4 text-muted-foreground" />
+              <div>
+                <p className="text-xs font-medium text-muted-foreground">
                   Created
-                </Typography>
-                <Typography variant="body2" fontSize="0.75rem">
+                </p>
+                <p className="text-xs">
                   {formatDate(person.created)}
-                </Typography>
-              </Box>
-            </Box>
-          </Box>
-          <Box flex={1}>
-            <Box display="flex" alignItems="center" gap={1}>
-              <Person sx={{ fontSize: 16, color: 'text.secondary' }} />
-              <Box>
-                <Typography variant="caption" color="text.secondary" fontWeight={500}>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="flex-1">
+            <div className="flex items-center gap-2">
+              <User className="w-4 h-4 text-muted-foreground" />
+              <div>
+                <p className="text-xs font-medium text-muted-foreground">
                   Permissions
-                </Typography>
-                <Typography variant="body2" fontSize="0.75rem">
+                </p>
+                <p className="text-xs">
                   {permissionCount} groups
-                </Typography>
-              </Box>
-            </Box>
-          </Box>
-        </Box>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Action Buttons */}
-        <Box display="flex" gap={1} pt={1}>
+        <div className="flex gap-2 pt-2">
           <Button 
-            variant="outlined" 
-            size="small" 
-            startIcon={<Visibility />}
-            sx={{ flex: 1 }}
+            variant="outline" 
+            size="sm" 
+            className="flex-1"
           >
+            <Eye className="w-4 h-4 mr-2" />
             View Profile
           </Button>
           <Button 
-            variant="contained" 
-            size="small" 
-            startIcon={<Message />}
-            sx={{ flex: 1 }}
+            size="sm" 
+            className="flex-1"
           >
+            <MessageCircle className="w-4 h-4 mr-2" />
             Contact
           </Button>
-        </Box>
+        </div>
       </CardContent>
     </Card>
   );

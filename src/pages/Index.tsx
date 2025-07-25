@@ -88,7 +88,10 @@ const Index = () => {
             ) : error ? (
               <Typography color="error">Failed to load person data</Typography>
             ) : personData ? (
-              <PersonCard person={personData} />
+              <>
+                {console.log('PersonData:', personData)}
+                <PersonCard person={personData} />
+              </>
             ) : null}
           </Box>
           <Box sx={{ display: 'flex', justifyContent: 'center' }}>
