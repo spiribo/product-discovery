@@ -1,19 +1,26 @@
 import React from 'react';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
-import { 
-  Mail, 
-  Phone, 
-  Smartphone, 
-  Globe, 
-  Calendar, 
-  User, 
-  Eye, 
-  MessageCircle 
-} from 'lucide-react';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  Avatar,
+  Chip,
+  Typography,
+  Button,
+  Box,
+  Divider,
+  Link
+} from '@mui/material';
+import {
+  Email,
+  Phone,
+  Smartphone,
+  Language,
+  CalendarToday,
+  Person,
+  Visibility,
+  Message
+} from '@mui/icons-material';
 
 interface PersonData {
   id: string;
@@ -59,140 +66,170 @@ export const PersonCard = ({ person, className = "" }: PersonCardProps) => {
   const permissionCount = Object.keys(person.additionalData?.permissions || {}).length;
 
   return (
-    <Card className={`w-full max-w-md mx-auto hover:shadow-lg transition-shadow duration-300 ${className}`}>
-      <CardHeader className="pb-4">
-        <div className="flex items-center gap-4">
-          <Avatar className="w-16 h-16">
-            <AvatarImage 
-              src={person.additionalData?.avatar} 
-              alt={`${person.firstname} ${person.lastname}`}
-            />
-            <AvatarFallback className="text-lg font-semibold">
-              {getInitials(person.firstname, person.lastname)}
-            </AvatarFallback>
+    <Card 
+      className={className}
+      sx={{ 
+        maxWidth: 400, 
+        mx: 'auto',
+        '&:hover': {
+          boxShadow: 6,
+        },
+        transition: 'box-shadow 0.3s ease-in-out'
+      }}
+      elevation={3}
+    >
+      <CardHeader sx={{ pb: 2 }}>
+        <Box display="flex" alignItems="center" gap={2}>
+          <Avatar 
+            src={person.additionalData?.avatar} 
+            alt={`${person.firstname} ${person.lastname}`}
+            sx={{ width: 64, height: 64, fontSize: '1.5rem', fontWeight: 600 }}
+          >
+            {getInitials(person.firstname, person.lastname)}
           </Avatar>
-          <div className="flex-1 min-w-0">
+          <Box flex={1} minWidth={0}>
             {person.addressTitle && (
-              <p className="text-sm text-muted-foreground mb-1">
+              <Typography variant="caption" color="text.secondary" display="block">
                 {person.addressTitle}
-              </p>
+              </Typography>
             )}
-            <h3 className="text-lg font-semibold truncate">
+            <Typography variant="h6" component="h3" noWrap sx={{ fontWeight: 600 }}>
               {person.firstname} {person.lastname}
-            </h3>
+            </Typography>
             {person.displayRoleName && (
-              <Badge variant="outline" className="mt-1">
-                {person.displayRoleName}
-              </Badge>
+              <Chip 
+                label={person.displayRoleName} 
+                size="small" 
+                color="primary" 
+                variant="outlined"
+                sx={{ mt: 0.5 }}
+              />
             )}
-          </div>
-        </div>
+          </Box>
+        </Box>
       </CardHeader>
 
-      <CardContent className="pt-0">
+      <CardContent sx={{ pt: 0 }}>
         {/* Contact Information */}
-        <div className="space-y-3 mb-6">
+        <Box mb={3}>
           {person.email && (
-            <div className="flex items-center gap-3">
-              <Mail className="w-4 h-4 text-muted-foreground" />
-              <a 
+            <Box display="flex" alignItems="center" gap={1.5} mb={1.5}>
+              <Email fontSize="small" color="action" />
+              <Link 
                 href={`mailto:${person.email}`}
-                className="text-sm hover:text-primary transition-colors truncate"
+                color="inherit"
+                underline="hover"
+                sx={{ 
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  '&:hover': { color: 'primary.main' }
+                }}
               >
-                {person.email}
-              </a>
-            </div>
+                <Typography variant="body2">{person.email}</Typography>
+              </Link>
+            </Box>
           )}
           
           {person.phone && (
-            <div className="flex items-center gap-3">
-              <Phone className="w-4 h-4 text-muted-foreground" />
-              <a 
+            <Box display="flex" alignItems="center" gap={1.5} mb={1.5}>
+              <Phone fontSize="small" color="action" />
+              <Link 
                 href={`tel:${person.phone}`}
-                className="text-sm hover:text-primary transition-colors"
+                color="inherit"
+                underline="hover"
+                sx={{ '&:hover': { color: 'primary.main' } }}
               >
-                {person.phone}
-              </a>
-            </div>
+                <Typography variant="body2">{person.phone}</Typography>
+              </Link>
+            </Box>
           )}
           
           {person.mobile && (
-            <div className="flex items-center gap-3">
-              <Smartphone className="w-4 h-4 text-muted-foreground" />
-              <a 
+            <Box display="flex" alignItems="center" gap={1.5} mb={1.5}>
+              <Smartphone fontSize="small" color="action" />
+              <Link 
                 href={`tel:${person.mobile}`}
-                className="text-sm hover:text-primary transition-colors"
+                color="inherit"
+                underline="hover"
+                sx={{ '&:hover': { color: 'primary.main' } }}
               >
-                {person.mobile}
-              </a>
-            </div>
+                <Typography variant="body2">{person.mobile}</Typography>
+              </Link>
+            </Box>
           )}
           
           {person.url && (
-            <div className="flex items-center gap-3">
-              <Globe className="w-4 h-4 text-muted-foreground" />
-              <a 
+            <Box display="flex" alignItems="center" gap={1.5} mb={1.5}>
+              <Language fontSize="small" color="action" />
+              <Link 
                 href={person.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm hover:text-primary transition-colors truncate"
+                color="inherit"
+                underline="hover"
+                sx={{ 
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  '&:hover': { color: 'primary.main' }
+                }}
               >
-                {person.url}
-              </a>
-            </div>
+                <Typography variant="body2">{person.url}</Typography>
+              </Link>
+            </Box>
           )}
-        </div>
+        </Box>
 
-        <Separator className="mb-4" />
+        <Divider sx={{ mb: 2 }} />
 
         {/* Metadata */}
-        <div className="flex gap-4 mb-4">
-          <div className="flex-1">
-            <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4 text-muted-foreground" />
-              <div>
-                <p className="text-xs font-medium text-muted-foreground">
+        <Box display="flex" gap={2} sx={{ mb: 2 }}>
+          <Box flex={1}>
+            <Box display="flex" alignItems="center" gap={1}>
+              <CalendarToday sx={{ fontSize: 16, color: 'text.secondary' }} />
+              <Box>
+                <Typography variant="caption" color="text.secondary" fontWeight={500}>
                   Created
-                </p>
-                <p className="text-xs">
+                </Typography>
+                <Typography variant="body2" fontSize="0.75rem">
                   {formatDate(person.created)}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex-1">
-            <div className="flex items-center gap-2">
-              <User className="w-4 h-4 text-muted-foreground" />
-              <div>
-                <p className="text-xs font-medium text-muted-foreground">
+                </Typography>
+              </Box>
+            </Box>
+          </Box>
+          <Box flex={1}>
+            <Box display="flex" alignItems="center" gap={1}>
+              <Person sx={{ fontSize: 16, color: 'text.secondary' }} />
+              <Box>
+                <Typography variant="caption" color="text.secondary" fontWeight={500}>
                   Permissions
-                </p>
-                <p className="text-xs">
+                </Typography>
+                <Typography variant="body2" fontSize="0.75rem">
                   {permissionCount} groups
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+                </Typography>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
 
         {/* Action Buttons */}
-        <div className="flex gap-2 pt-2">
+        <Box display="flex" gap={1} pt={1}>
           <Button 
-            variant="outline" 
-            size="sm" 
-            className="flex-1"
+            variant="outlined" 
+            size="small" 
+            startIcon={<Visibility />}
+            sx={{ flex: 1 }}
           >
-            <Eye className="w-4 h-4 mr-2" />
             View Profile
           </Button>
           <Button 
-            size="sm" 
-            className="flex-1"
+            variant="contained" 
+            size="small" 
+            startIcon={<Message />}
+            sx={{ flex: 1 }}
           >
-            <MessageCircle className="w-4 h-4 mr-2" />
             Contact
           </Button>
-        </div>
+        </Box>
       </CardContent>
     </Card>
   );
