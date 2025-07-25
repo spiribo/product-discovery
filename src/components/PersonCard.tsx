@@ -93,7 +93,16 @@ export const PersonCard = ({ person, className = "" }: PersonCardProps) => {
                 {person.addressTitle}
               </Typography>
             )}
-            <Typography variant="h6" component="h3" noWrap sx={{ fontWeight: 600 }}>
+            <Typography 
+              variant="h6" 
+              component="h3" 
+              noWrap 
+              sx={{ 
+                fontWeight: 600,
+                color: 'text.primary',
+                display: 'block'
+              }}
+            >
               {person.firstname} {person.lastname}
             </Typography>
             {person.displayRoleName && (
