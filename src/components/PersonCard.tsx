@@ -78,12 +78,8 @@ export const PersonCard = ({ person, className = "" }: PersonCardProps) => {
       }}
       elevation={3}
     >
-      <CardHeader sx={{ 
-        pb: 2,
-        backgroundColor: 'background.paper',
-        color: 'text.primary'
-      }}>
-        <Box display="flex" alignItems="center" gap={2}>
+      <CardHeader
+        avatar={
           <Avatar 
             src={person.additionalData?.avatar} 
             alt={`${person.firstname} ${person.lastname}`}
@@ -91,36 +87,25 @@ export const PersonCard = ({ person, className = "" }: PersonCardProps) => {
           >
             {getInitials(person.firstname, person.lastname)}
           </Avatar>
-          <Box flex={1} minWidth={0}>
-            {person.addressTitle && (
-              <Typography variant="caption" color="text.secondary" display="block">
-                {person.addressTitle}
-              </Typography>
-            )}
-            <Typography 
-              variant="h6" 
-              component="h3" 
-              noWrap 
-              sx={{ 
-                fontWeight: 600,
-                color: 'text.primary',
-                display: 'block'
-              }}
-            >
-              {person.firstname} {person.lastname}
-            </Typography>
-            {person.displayRoleName && (
-              <Chip 
-                label={person.displayRoleName} 
-                size="small" 
-                color="primary" 
-                variant="outlined"
-                sx={{ mt: 0.5 }}
-              />
-            )}
-          </Box>
-        </Box>
-      </CardHeader>
+        }
+        title={`${person.firstname} ${person.lastname}`}
+        subheader={person.addressTitle}
+        action={
+          person.displayRoleName && (
+            <Chip 
+              label={person.displayRoleName} 
+              size="small" 
+              color="primary" 
+              variant="outlined"
+            />
+          )
+        }
+        sx={{ 
+          pb: 2,
+          backgroundColor: 'background.paper',
+          color: 'text.primary'
+        }}
+      />
 
       <CardContent sx={{ pt: 0 }}>
         {/* Contact Information */}
