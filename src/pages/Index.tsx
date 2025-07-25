@@ -1,43 +1,21 @@
 import { PersonCard } from "@/components/PersonCard";
 import { MessageThread } from "@/components/MessageThread";
-import { Box, Typography, Container, Paper } from '@mui/material';
+import { Box, Typography, Container, Paper, CircularProgress } from '@mui/material';
+import { useQuery } from '@tanstack/react-query';
+
+const fetchPersonData = async () => {
+  const response = await fetch('https://n8n.dev.spiribo.com/webhook/mock-data');
+  if (!response.ok) {
+    throw new Error('Failed to fetch person data');
+  }
+  return response.json();
+};
 
 const Index = () => {
-  // Sample person data for demonstration
-  const samplePerson = {
-    id: "person-123",
-    created: "2023-08-24T14:15:22Z",
-    updated: "2024-01-15T10:30:45Z",
-    addressTitle: "Dr.",
-    firstname: "Sarah",
-    lastname: "Johnson",
-    displayRoleName: "Senior Developer",
-    phone: "+1 (555) 123-4567",
-    mobile: "+1 (555) 987-6543",
-    email: "sarah.johnson@example.com",
-    url: "https://sarahjohnson.dev",
-    additionalData: {
-      id: "additional-456",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
-      permissions: {
-        admin: {
-          read: true,
-          write: true,
-          delete: true
-        },
-        developer: {
-          read: true,
-          write: true,
-          delete: false
-        },
-        user: {
-          read: true,
-          write: false,
-          delete: false
-        }
-      }
-    }
-  };
+  const { data: personData, isLoading, error } = useQuery({
+    queryKey: ['personData'],
+    queryFn: fetchPersonData,
+  });
 
   // Sample messages for demonstration
   const sampleMessages = [
@@ -105,7 +83,13 @@ const Index = () => {
           mb: 8 
         }}>
           <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-            <PersonCard person={samplePerson} />
+            {isLoading ? (
+              <CircularProgress />
+            ) : error ? (
+              <Typography color="error">Failed to load person data</Typography>
+            ) : personData ? (
+              <PersonCard person={personData} />
+            ) : null}
           </Box>
           <Box sx={{ display: 'flex', justifyContent: 'center' }}>
             <MessageThread 
