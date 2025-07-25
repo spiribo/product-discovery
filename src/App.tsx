@@ -10,7 +10,7 @@ const queryClient = new QueryClient();
 // Create Material UI theme
 const theme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: 'light',
     primary: {
       main: '#1976d2',
     },
