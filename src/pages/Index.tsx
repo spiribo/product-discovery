@@ -100,14 +100,14 @@ const Index = () => {
         
         <Box sx={{ 
           display: 'grid', 
-          gridTemplateColumns: { xs: '1fr', lg: 'repeat(2, 1fr)' },
+          gridTemplateColumns: '1fr',
           gap: 4,
           mb: 8 
         }}>
           <Box sx={{ display: 'flex', justifyContent: 'center' }}>
             <PersonCard person={samplePerson} />
           </Box>
-          <Box>
+          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
             <MessageThread 
               messages={sampleMessages}
               landlordName="John Smith (Property Manager)"

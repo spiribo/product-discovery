@@ -107,12 +107,6 @@ export const MessageThread: React.FC<MessageThreadProps> = ({
                     <Typography variant="subtitle2" component="span">
                       {message.senderName}
                     </Typography>
-                    <Chip
-                      label={message.senderType}
-                      size="small"
-                      color={getSenderColor(message.senderType)}
-                      sx={{ height: 20, fontSize: '0.7rem' }}
-                    />
                     {!message.isRead && (
                       <Chip
                         label="New"
