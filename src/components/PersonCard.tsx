@@ -78,7 +78,11 @@ export const PersonCard = ({ person, className = "" }: PersonCardProps) => {
       }}
       elevation={3}
     >
-      <CardHeader sx={{ pb: 2 }}>
+      <CardHeader sx={{ 
+        pb: 2,
+        backgroundColor: 'background.paper',
+        color: 'text.primary'
+      }}>
         <Box display="flex" alignItems="center" gap={2}>
           <Avatar 
             src={person.additionalData?.avatar} 
