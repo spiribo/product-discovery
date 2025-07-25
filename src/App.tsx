@@ -7,15 +7,23 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-// Create Material UI theme
+// Create Material UI theme with custom color palette
 const theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#1976d2',
+      main: '#606C38', // Dark moss green
     },
     secondary: {
-      main: '#dc004e',
+      main: '#BC6C25', // Tiger's Eye
+    },
+    background: {
+      default: '#FEFAE0', // Cornsilk
+      paper: '#FEFAE0',
+    },
+    text: {
+      primary: '#283618', // Pakistan green
+      secondary: '#606C38',
     },
   },
   typography: {
