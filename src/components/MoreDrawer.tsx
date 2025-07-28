@@ -23,9 +23,11 @@ import {
   HelpOutline,
   Build,
   Close,
-  ExitToApp
+  ExitToApp,
+  Message
 } from '@mui/icons-material';
 import { useAuth } from '@/contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 interface MoreDrawerProps {
   open: boolean;
@@ -34,8 +36,11 @@ interface MoreDrawerProps {
 
 const MoreDrawer: React.FC<MoreDrawerProps> = ({ open, onClose }) => {
   const { logout, user } = useAuth();
+  const navigate = useNavigate();
+  
   const topMenuItems = [
-    { icon: Person, text: 'Kundenaccount', action: () => console.log('Kundenaccount clicked') },
+    { icon: Person, text: 'Personen', action: () => navigate('/person') },
+    { icon: Message, text: 'Nachrichten', action: () => navigate('/message-thread') },
     { icon: Home, text: 'Mein Zuhause', action: () => console.log('Mein Zuhause clicked') },
     { icon: Store, text: 'SPIRIBO Marktplatz', action: () => console.log('SPIRIBO Marktplatz clicked') },
   ];

@@ -6,6 +6,8 @@ import { AuthProvider, useAuth } from './contexts/AuthContext';
 import Home from "./pages/Home";
 import Personal from "./pages/Personal";
 import Messages from "./pages/Messages";
+import PersonView from "./pages/PersonView";
+import MessageView from "./pages/MessageView";
 import Schaden from "./pages/Schaden";
 import Anliegen from "./pages/Anliegen";
 import Postfach from "./pages/Postfach";
@@ -41,6 +43,8 @@ const AppContent = () => {
         <Route path="/" element={<Home />} />
         <Route path="/personal" element={<Personal />} />
         <Route path="/messages" element={<Messages />} />
+        <Route path="/person" element={<PersonView />} />
+        <Route path="/message-thread" element={<MessageView />} />
         <Route path="/schaden" element={<Schaden />} />
         <Route path="/anliegen" element={<Anliegen />} />
         <Route path="/postfach" element={<Postfach />} />
