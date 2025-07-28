@@ -11,7 +11,6 @@ import {
   CircularProgress
 } from '@mui/material';
 import { useAuth } from '@/contexts/AuthContext';
-import birdsBackground from '@/assets/birds-background.jpg';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -42,10 +41,7 @@ const LoginPage = () => {
     <Box 
       sx={{ 
         minHeight: '100vh', 
-        backgroundImage: `url(${birdsBackground})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
+        bgcolor: 'background.default',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
