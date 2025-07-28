@@ -22,8 +22,10 @@ import {
   BarChart,
   HelpOutline,
   Build,
-  Close
+  Close,
+  ExitToApp
 } from '@mui/icons-material';
+import { useAuth } from '@/contexts/AuthContext';
 
 interface MoreDrawerProps {
   open: boolean;
@@ -31,6 +33,7 @@ interface MoreDrawerProps {
 }
 
 const MoreDrawer: React.FC<MoreDrawerProps> = ({ open, onClose }) => {
+  const { logout, user } = useAuth();
   const topMenuItems = [
     { icon: Person, text: 'Kundenaccount', action: () => console.log('Kundenaccount clicked') },
     { icon: Home, text: 'Mein Zuhause', action: () => console.log('Mein Zuhause clicked') },
@@ -166,6 +169,38 @@ const MoreDrawer: React.FC<MoreDrawerProps> = ({ open, onClose }) => {
               </ListItem>
             ))}
           </List>
+          
+          {/* Logout Section */}
+          <Box sx={{ mt: 'auto', p: 2 }}>
+            <ListItem 
+              onClick={() => {
+                logout();
+                onClose();
+              }}
+              sx={{
+                py: 1.5,
+                px: 2,
+                cursor: 'pointer',
+                borderRadius: 1,
+                '&:hover': {
+                  bgcolor: 'rgba(255, 255, 255, 0.1)'
+                }
+              }}
+            >
+              <ListItemIcon sx={{ minWidth: 40 }}>
+                <ExitToApp sx={{ color: 'white' }} />
+              </ListItemIcon>
+              <ListItemText 
+                primary="Abmelden"
+                primaryTypographyProps={{
+                  fontSize: '0.95rem',
+                  fontWeight: 500,
+                  color: 'white',
+                  fontFamily: 'Roboto'
+                }}
+              />
+            </ListItem>
+          </Box>
         </Box>
       </Box>
     </Drawer>
