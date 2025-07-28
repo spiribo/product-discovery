@@ -112,7 +112,7 @@ const MoreDrawer: React.FC<MoreDrawerProps> = ({ open, onClose }) => {
 
         {/* Landlord Section */}
         <Box sx={{ 
-          bgcolor: '#2196F3', // Blue background like in the image
+          bgcolor: '#007070', // Using main theme color
           color: 'white',
           flex: 1
         }}>

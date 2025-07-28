@@ -14,6 +14,9 @@ const queryClient = new QueryClient();
 const theme = createTheme({
   palette: {
     mode: 'light',
+    primary: {
+      main: '#007070', // Teal theme color
+    },
   },
   typography: {
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
