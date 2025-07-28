@@ -10,7 +10,7 @@ const queryClient = new QueryClient();
 // Create Material UI theme with custom color palette
 const theme = createTheme({
   palette: {
-    mode: 'light',
+    mode: 'dark',
     primary: {
       main: '#606C38', // Dark moss green
     },
@@ -18,12 +18,12 @@ const theme = createTheme({
       main: '#BC6C25', // Tiger's Eye
     },
     background: {
-      default: '#FEFAE0', // Cornsilk
-      paper: '#FEFAE0',
+      default: '#283618', // Pakistan green
+      paper: '#364328', // Slightly lighter than default
     },
     text: {
-      primary: '#283618', // Pakistan green
-      secondary: '#606C38',
+      primary: '#FEFAE0', // Cornsilk
+      secondary: '#DDA15E', // Lighter orange for secondary text
     },
   },
   typography: {
