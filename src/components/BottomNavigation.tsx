@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BottomNavigation, BottomNavigationAction, Paper } from '@mui/material';
-import { Home, Person, Message } from '@mui/icons-material';
+import { Home, ReportProblem, ContactSupport, Mail } from '@mui/icons-material';
 import { MoreHorizontal } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import MoreDrawer from './MoreDrawer';
@@ -14,12 +14,14 @@ const AppBottomNavigation = () => {
     switch (path) {
       case '/':
         return 0;
-      case '/personal':
+      case '/schaden':
         return 1;
-      case '/messages':
+      case '/anliegen':
         return 2;
-      case '/more':
+      case '/postfach':
         return 3;
+      case '/more':
+        return 4;
       default:
         return 0;
     }
@@ -31,12 +33,15 @@ const AppBottomNavigation = () => {
         navigate('/');
         break;
       case 1:
-        navigate('/personal');
+        navigate('/schaden');
         break;
       case 2:
-        navigate('/messages');
+        navigate('/anliegen');
         break;
       case 3:
+        navigate('/postfach');
+        break;
+      case 4:
         setDrawerOpen(true);
         break;
     }
@@ -50,9 +55,10 @@ const AppBottomNavigation = () => {
           onChange={handleChange}
           showLabels
         >
-          <BottomNavigationAction label="Startseite" icon={<Home />} />
-          <BottomNavigationAction label="Persönlich" icon={<Person />} />
-          <BottomNavigationAction label="Nachrichten" icon={<Message />} />
+          <BottomNavigationAction label="Start" icon={<Home />} />
+          <BottomNavigationAction label="Schaden" icon={<ReportProblem />} />
+          <BottomNavigationAction label="Anliegen" icon={<ContactSupport />} />
+          <BottomNavigationAction label="Postfach" icon={<Mail />} />
           <BottomNavigationAction 
             label="Mehr"
             icon={<MoreHorizontal size={24} />} 

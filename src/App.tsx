@@ -6,6 +6,9 @@ import { AuthProvider, useAuth } from './contexts/AuthContext';
 import Home from "./pages/Home";
 import Personal from "./pages/Personal";
 import Messages from "./pages/Messages";
+import Schaden from "./pages/Schaden";
+import Anliegen from "./pages/Anliegen";
+import Postfach from "./pages/Postfach";
 import LoginPage from "./pages/LoginPage";
 import NotFound from "./pages/NotFound";
 import AppBottomNavigation from "./components/BottomNavigation";
@@ -38,6 +41,9 @@ const AppContent = () => {
         <Route path="/" element={<Home />} />
         <Route path="/personal" element={<Personal />} />
         <Route path="/messages" element={<Messages />} />
+        <Route path="/schaden" element={<Schaden />} />
+        <Route path="/anliegen" element={<Anliegen />} />
+        <Route path="/postfach" element={<Postfach />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
