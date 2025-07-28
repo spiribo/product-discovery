@@ -10,7 +10,7 @@ const Messages = () => {
       senderId: "landlord-1",
       senderType: "landlord" as const,
       senderName: "John Smith",
-      content: "Hi Sarah, I hope you're settling in well. Just wanted to check if everything is working properly in your apartment?",
+      content: "Hallo Sarah, ich hoffe, Sie haben sich gut eingelebt. Ich wollte nur fragen, ob in Ihrer Wohnung alles richtig funktioniert?",
       timestamp: "2024-01-15T09:30:00Z",
       isRead: true
     },
@@ -19,7 +19,7 @@ const Messages = () => {
       senderId: "tenant-1",
       senderType: "tenant" as const,
       senderName: "Sarah Johnson",
-      content: "Hello! Thank you for checking in. Everything is great, but the kitchen faucet has been dripping. Could we arrange for someone to take a look at it?",
+      content: "Hallo! Vielen Dank für die Nachfrage. Alles ist großartig, aber der Wasserhahn in der Küche tropft. Könnten wir jemanden arrangieren, der sich das ansieht?",
       timestamp: "2024-01-15T14:45:00Z",
       isRead: true
     },
@@ -28,7 +28,7 @@ const Messages = () => {
       senderId: "landlord-1",
       senderType: "landlord" as const,
       senderName: "John Smith",
-      content: "Of course! I'll have our maintenance team come by this Thursday between 2-4 PM. Will that work for you?",
+      content: "Natürlich! Unser Wartungsteam wird am Donnerstag zwischen 14:00 und 16:00 Uhr vorbeikommen. Passt Ihnen das?",
       timestamp: "2024-01-15T15:20:00Z",
       isRead: true
     },
@@ -37,7 +37,7 @@ const Messages = () => {
       senderId: "tenant-1",
       senderType: "tenant" as const,
       senderName: "Sarah Johnson",
-      content: "Perfect! Thursday afternoon works well for me. I'll make sure to be home. Thank you for the quick response!",
+      content: "Perfekt! Donnerstagnachmittag passt mir gut. Ich werde sicherstellen, dass ich zu Hause bin. Vielen Dank für die schnelle Antwort!",
       timestamp: "2024-01-15T16:10:00Z",
       isRead: false
     }

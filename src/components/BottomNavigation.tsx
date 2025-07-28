@@ -50,11 +50,11 @@ const AppBottomNavigation = () => {
           onChange={handleChange}
           showLabels
         >
-          <BottomNavigationAction label="Home" icon={<Home />} />
-          <BottomNavigationAction label="Personal" icon={<Person />} />
-          <BottomNavigationAction label="Messages" icon={<Message />} />
+          <BottomNavigationAction label="Startseite" icon={<Home />} />
+          <BottomNavigationAction label="Persönlich" icon={<Person />} />
+          <BottomNavigationAction label="Nachrichten" icon={<Message />} />
           <BottomNavigationAction 
-            label="More" 
+            label="Mehr"
             icon={<MoreHorizontal size={24} />} 
           />
         </BottomNavigation>

@@ -59,7 +59,7 @@ export const MessageThread: React.FC<MessageThreadProps> = ({
         textAlign: 'center' 
       }}>
         <Typography variant="h6" component="h2">
-          Conversation
+          Unterhaltung
         </Typography>
         <Typography variant="body2" sx={{ opacity: 0.9, mt: 1 }}>
           {landlordName} ↔ {tenantName}
@@ -109,7 +109,7 @@ export const MessageThread: React.FC<MessageThreadProps> = ({
                     </Typography>
                     {!message.isRead && (
                       <Chip
-                        label="New"
+                        label="Neu"
                         size="small"
                         color="warning"
                         sx={{ height: 20, fontSize: '0.7rem' }}

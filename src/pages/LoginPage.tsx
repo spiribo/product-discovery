@@ -51,7 +51,7 @@ const LoginPage = () => {
         <Card sx={{ p: 4 }}>
           <CardContent>
             <Typography variant="h4" component="h1" gutterBottom align="center" sx={{ mb: 4 }}>
-              Welcome Back
+              Willkommen zurück
             </Typography>
             
             {error && (
@@ -63,7 +63,7 @@ const LoginPage = () => {
             <Box component="form" onSubmit={handleLogin}>
               <TextField
                 fullWidth
-                label="Email"
+                label="E-Mail"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -91,12 +91,12 @@ const LoginPage = () => {
                 disabled={loading}
                 size="large"
               >
-                {loading ? <CircularProgress size={24} /> : 'Sign In'}
+                {loading ? <CircularProgress size={24} /> : 'Anmelden'}
               </Button>
             </Box>
 
             <Typography variant="body2" color="text.secondary" align="center" sx={{ mt: 2 }}>
-              This is a demo login - use any email and password to sign in
+              Dies ist eine Demo-Anmeldung - verwenden Sie eine beliebige E-Mail und Passwort zum Anmelden
             </Typography>
           </CardContent>
         </Card>

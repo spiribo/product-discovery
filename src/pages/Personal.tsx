@@ -30,10 +30,10 @@ const Personal = () => {
       <Container maxWidth="lg">
         <Box sx={{ textAlign: 'center', mb: 6 }}>
           <Typography variant="h3" component="h1" gutterBottom sx={{ fontWeight: 'bold' }}>
-            Personal Profile
+            Persönliches Profil
           </Typography>
           <Typography variant="h6" color="text.secondary">
-            Your personal information and contact details
+            Ihre persönlichen Informationen und Kontaktdaten
           </Typography>
         </Box>
         
@@ -41,7 +41,7 @@ const Personal = () => {
           {isLoading ? (
             <CircularProgress />
           ) : error ? (
-            <Typography color="error">Failed to load person data</Typography>
+            <Typography color="error">Fehler beim Laden der Personendaten</Typography>
           ) : personData ? (
             <PersonCard person={personData} />
           ) : null}

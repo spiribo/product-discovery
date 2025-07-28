@@ -187,7 +187,7 @@ export const PersonCard = ({ person, className = "" }: PersonCardProps) => {
               <CalendarToday sx={{ fontSize: 16, color: 'text.secondary' }} />
               <Box>
                 <Typography variant="caption" color="text.secondary" fontWeight={500}>
-                  Created
+                  Erstellt
                 </Typography>
                 <Typography variant="body2" fontSize="0.75rem">
                   {formatDate(person.created)}
@@ -200,10 +200,10 @@ export const PersonCard = ({ person, className = "" }: PersonCardProps) => {
               <Person sx={{ fontSize: 16, color: 'text.secondary' }} />
               <Box>
                 <Typography variant="caption" color="text.secondary" fontWeight={500}>
-                  Permissions
+                  Berechtigungen
                 </Typography>
                 <Typography variant="body2" fontSize="0.75rem">
-                  {permissionCount} groups
+                  {permissionCount} Gruppen
                 </Typography>
               </Box>
             </Box>
@@ -218,7 +218,7 @@ export const PersonCard = ({ person, className = "" }: PersonCardProps) => {
             startIcon={<Visibility />}
             sx={{ flex: 1 }}
           >
-            View Profile
+            Profil anzeigen
           </Button>
           <Button 
             variant="contained" 
@@ -226,7 +226,7 @@ export const PersonCard = ({ person, className = "" }: PersonCardProps) => {
             startIcon={<Message />}
             sx={{ flex: 1 }}
           >
-            Contact
+            Kontakt
           </Button>
         </Box>
       </CardContent>

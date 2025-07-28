@@ -29,7 +29,7 @@ const NotFound = () => {
             404
           </Typography>
           <Typography variant="h5" color="text.secondary" sx={{ mb: 4 }}>
-            Oops! Page not found
+            Ups! Seite nicht gefunden
           </Typography>
           <Button
             component={Link}
@@ -38,7 +38,7 @@ const NotFound = () => {
             startIcon={<Home />}
             size="large"
           >
-            Return to Home
+            Zurück zur Startseite
           </Button>
         </Box>
       </Container>

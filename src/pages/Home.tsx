@@ -16,10 +16,10 @@ const Home = () => {
       <Container maxWidth="lg">
         <Box sx={{ textAlign: 'center', mb: 6 }}>
           <Typography variant="h3" component="h1" gutterBottom sx={{ fontWeight: 'bold' }}>
-            Welcome to the App
+            Willkommen in der App
           </Typography>
           <Typography variant="h6" color="text.secondary">
-            Your personal dashboard and communication hub
+            Ihr persönliches Dashboard und Kommunikationszentrum
           </Typography>
         </Box>
 
@@ -32,10 +32,10 @@ const Home = () => {
             <CardContent>
               <Dashboard sx={{ fontSize: 48, color: 'primary.main', mb: 2 }} />
               <Typography variant="h6" gutterBottom>
-                Dashboard
+                Übersicht
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Get an overview of your activities and important information
+                Erhalten Sie einen Überblick über Ihre Aktivitäten und wichtige Informationen
               </Typography>
             </CardContent>
           </Card>
@@ -44,10 +44,10 @@ const Home = () => {
             <CardContent>
               <Person sx={{ fontSize: 48, color: 'primary.main', mb: 2 }} />
               <Typography variant="h6" gutterBottom>
-                Personal Profile
+                Persönliches Profil
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                View and manage your personal information and settings
+                Anzeigen und Verwalten Ihrer persönlichen Informationen und Einstellungen
               </Typography>
             </CardContent>
           </Card>
@@ -56,10 +56,10 @@ const Home = () => {
             <CardContent>
               <Message sx={{ fontSize: 48, color: 'primary.main', mb: 2 }} />
               <Typography variant="h6" gutterBottom>
-                Messages
+                Nachrichten
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Stay connected with conversations and notifications
+                Bleiben Sie in Verbindung mit Gesprächen und Benachrichtigungen
               </Typography>
             </CardContent>
           </Card>
