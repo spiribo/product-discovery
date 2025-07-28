@@ -12,18 +12,18 @@ import {
   Badge
 } from '@mui/material';
 import { 
-  User, 
+  Person,
   Home,
   Store,
   Newspaper,
-  CreditCard,
-  FileText,
-  File,
-  BarChart3,
-  HelpCircle,
-  Wrench,
-  X
-} from 'lucide-react';
+  AccountBox,
+  Description,
+  InsertDriveFile,
+  BarChart,
+  HelpOutline,
+  Build,
+  Close
+} from '@mui/icons-material';
 
 interface MoreDrawerProps {
   open: boolean;
@@ -32,19 +32,19 @@ interface MoreDrawerProps {
 
 const MoreDrawer: React.FC<MoreDrawerProps> = ({ open, onClose }) => {
   const topMenuItems = [
-    { icon: User, text: 'Customer Account', action: () => console.log('Customer Account clicked') },
-    { icon: Home, text: 'My Home', action: () => console.log('My Home clicked') },
-    { icon: Store, text: 'SPIRIBO Marketplace', action: () => console.log('Marketplace clicked') },
+    { icon: Person, text: 'Kundenaccount', action: () => console.log('Kundenaccount clicked') },
+    { icon: Home, text: 'Mein Zuhause', action: () => console.log('Mein Zuhause clicked') },
+    { icon: Store, text: 'SPIRIBO Marktplatz', action: () => console.log('SPIRIBO Marktplatz clicked') },
   ];
 
   const landlordMenuItems = [
-    { icon: Newspaper, text: 'News', action: () => console.log('News clicked') },
-    { icon: CreditCard, text: 'Customer Account', action: () => console.log('Customer Account clicked') },
-    { icon: FileText, text: 'Forms', action: () => console.log('Forms clicked') },
-    { icon: File, text: 'Documents', action: () => console.log('Documents clicked'), badge: 1 },
-    { icon: BarChart3, text: 'Consumption Info', action: () => console.log('Consumption clicked') },
-    { icon: HelpCircle, text: 'FAQs & Contact', action: () => console.log('FAQs clicked') },
-    { icon: Wrench, text: 'Damage Center', action: () => console.log('Damage Center clicked') },
+    { icon: Newspaper, text: 'Neuigkeiten', action: () => console.log('Neuigkeiten clicked') },
+    { icon: AccountBox, text: 'Kundenkonto', action: () => console.log('Kundenkonto clicked') },
+    { icon: Description, text: 'Formulare', action: () => console.log('Formulare clicked') },
+    { icon: InsertDriveFile, text: 'Dokumente', action: () => console.log('Dokumente clicked'), badge: 1 },
+    { icon: BarChart, text: 'Verbrauchsinformation', action: () => console.log('Verbrauchsinformation clicked') },
+    { icon: HelpOutline, text: 'FAQs & Kontakt', action: () => console.log('FAQs & Kontakt clicked') },
+    { icon: Build, text: 'Schadenscenter', action: () => console.log('Schadenscenter clicked') },
   ];
 
   return (
@@ -69,7 +69,7 @@ const MoreDrawer: React.FC<MoreDrawerProps> = ({ open, onClose }) => {
           borderColor: 'divider'
         }}>
           <IconButton onClick={onClose}>
-            <X size={24} />
+            <Close />
           </IconButton>
         </Box>
 
@@ -95,13 +95,14 @@ const MoreDrawer: React.FC<MoreDrawerProps> = ({ open, onClose }) => {
                 }}
               >
                 <ListItemIcon sx={{ minWidth: 40 }}>
-                  <item.icon size={20} color="currentColor" />
+                  <item.icon color="action" />
                 </ListItemIcon>
                 <ListItemText 
                   primary={item.text}
                   primaryTypographyProps={{
                     fontSize: '0.95rem',
-                    fontWeight: 500
+                    fontWeight: 500,
+                    fontFamily: 'Roboto'
                   }}
                 />
               </ListItem>
@@ -117,8 +118,12 @@ const MoreDrawer: React.FC<MoreDrawerProps> = ({ open, onClose }) => {
         }}>
           {/* Section Header */}
           <Box sx={{ p: 3, pb: 2 }}>
-            <Typography variant="h6" sx={{ fontWeight: 600, color: 'white' }}>
-              Your Landlord
+            <Typography variant="h6" sx={{ 
+              fontWeight: 600, 
+              color: 'white',
+              fontFamily: 'Roboto'
+            }}>
+              Ihr Vermieter
             </Typography>
           </Box>
 
@@ -143,10 +148,10 @@ const MoreDrawer: React.FC<MoreDrawerProps> = ({ open, onClose }) => {
                 <ListItemIcon sx={{ minWidth: 40 }}>
                   {item.badge ? (
                     <Badge badgeContent={item.badge} color="error">
-                      <item.icon size={20} color="white" />
+                      <item.icon sx={{ color: 'white' }} />
                     </Badge>
                   ) : (
-                    <item.icon size={20} color="white" />
+                    <item.icon sx={{ color: 'white' }} />
                   )}
                 </ListItemIcon>
                 <ListItemText 
@@ -154,7 +159,8 @@ const MoreDrawer: React.FC<MoreDrawerProps> = ({ open, onClose }) => {
                   primaryTypographyProps={{
                     fontSize: '0.95rem',
                     fontWeight: 500,
-                    color: 'white'
+                    color: 'white',
+                    fontFamily: 'Roboto'
                   }}
                 />
               </ListItem>
