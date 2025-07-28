@@ -9,14 +9,19 @@ import {
   Typography,
   Box,
   Divider,
-  Avatar
+  Badge
 } from '@mui/material';
 import { 
   User, 
-  Settings, 
-  HelpCircle, 
-  Info, 
-  LogOut,
+  Home,
+  Store,
+  Newspaper,
+  CreditCard,
+  FileText,
+  File,
+  BarChart3,
+  HelpCircle,
+  Wrench,
   X
 } from 'lucide-react';
 
@@ -26,11 +31,20 @@ interface MoreDrawerProps {
 }
 
 const MoreDrawer: React.FC<MoreDrawerProps> = ({ open, onClose }) => {
-  const menuItems = [
-    { icon: User, text: 'Profile', action: () => console.log('Profile clicked') },
-    { icon: Settings, text: 'Settings', action: () => console.log('Settings clicked') },
-    { icon: HelpCircle, text: 'Help & Support', action: () => console.log('Help clicked') },
-    { icon: Info, text: 'About', action: () => console.log('About clicked') },
+  const topMenuItems = [
+    { icon: User, text: 'Customer Account', action: () => console.log('Customer Account clicked') },
+    { icon: Home, text: 'My Home', action: () => console.log('My Home clicked') },
+    { icon: Store, text: 'SPIRIBO Marketplace', action: () => console.log('Marketplace clicked') },
+  ];
+
+  const landlordMenuItems = [
+    { icon: Newspaper, text: 'News', action: () => console.log('News clicked') },
+    { icon: CreditCard, text: 'Customer Account', action: () => console.log('Customer Account clicked') },
+    { icon: FileText, text: 'Forms', action: () => console.log('Forms clicked') },
+    { icon: File, text: 'Documents', action: () => console.log('Documents clicked'), badge: 1 },
+    { icon: BarChart3, text: 'Consumption Info', action: () => console.log('Consumption clicked') },
+    { icon: HelpCircle, text: 'FAQs & Contact', action: () => console.log('FAQs clicked') },
+    { icon: Wrench, text: 'Damage Center', action: () => console.log('Damage Center clicked') },
   ];
 
   return (
@@ -46,40 +60,23 @@ const MoreDrawer: React.FC<MoreDrawerProps> = ({ open, onClose }) => {
       }}
     >
       <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-        {/* Header */}
+        {/* Header with Close Button */}
         <Box sx={{ 
-          p: 3, 
-          bgcolor: 'primary.main', 
-          color: 'primary.contrastText',
+          p: 2, 
           display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between'
+          justifyContent: 'flex-end',
+          borderBottom: 1,
+          borderColor: 'divider'
         }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-            <Avatar sx={{ width: 48, height: 48, bgcolor: 'primary.light' }}>
-              <User size={24} />
-            </Avatar>
-            <Box>
-              <Typography variant="h6" sx={{ fontWeight: 600 }}>
-                John Doe
-              </Typography>
-              <Typography variant="body2" sx={{ opacity: 0.9 }}>
-                john.doe@example.com
-              </Typography>
-            </Box>
-          </Box>
-          <IconButton 
-            onClick={onClose}
-            sx={{ color: 'primary.contrastText' }}
-          >
+          <IconButton onClick={onClose}>
             <X size={24} />
           </IconButton>
         </Box>
 
-        {/* Menu Items */}
-        <Box sx={{ flex: 1 }}>
-          <List sx={{ pt: 2 }}>
-            {menuItems.map((item, index) => (
+        {/* Top Menu Items */}
+        <Box sx={{ bgcolor: 'background.paper' }}>
+          <List sx={{ py: 0 }}>
+            {topMenuItems.map((item, index) => (
               <ListItem 
                 key={index}
                 onClick={() => {
@@ -87,9 +84,11 @@ const MoreDrawer: React.FC<MoreDrawerProps> = ({ open, onClose }) => {
                   onClose();
                 }}
                 sx={{
-                  py: 1.5,
+                  py: 2,
                   px: 3,
                   cursor: 'pointer',
+                  borderBottom: index < topMenuItems.length - 1 ? 1 : 0,
+                  borderColor: 'divider',
                   '&:hover': {
                     bgcolor: 'action.hover'
                   }
@@ -108,45 +107,59 @@ const MoreDrawer: React.FC<MoreDrawerProps> = ({ open, onClose }) => {
               </ListItem>
             ))}
           </List>
-
-          <Divider sx={{ mx: 3, my: 2 }} />
-
-          {/* Logout */}
-          <List>
-            <ListItem 
-              onClick={() => {
-                console.log('Logout clicked');
-                onClose();
-              }}
-              sx={{
-                py: 1.5,
-                px: 3,
-                cursor: 'pointer',
-                '&:hover': {
-                  bgcolor: 'error.light',
-                  color: 'error.contrastText'
-                }
-              }}
-            >
-              <ListItemIcon sx={{ minWidth: 40 }}>
-                <LogOut size={20} color="currentColor" />
-              </ListItemIcon>
-              <ListItemText 
-                primary="Sign Out"
-                primaryTypographyProps={{
-                  fontSize: '0.95rem',
-                  fontWeight: 500
-                }}
-              />
-            </ListItem>
-          </List>
         </Box>
 
-        {/* Footer */}
-        <Box sx={{ p: 3, borderTop: 1, borderColor: 'divider' }}>
-          <Typography variant="caption" color="text.secondary" align="center">
-            App Version 1.0.0
-          </Typography>
+        {/* Landlord Section */}
+        <Box sx={{ 
+          bgcolor: '#2196F3', // Blue background like in the image
+          color: 'white',
+          flex: 1
+        }}>
+          {/* Section Header */}
+          <Box sx={{ p: 3, pb: 2 }}>
+            <Typography variant="h6" sx={{ fontWeight: 600, color: 'white' }}>
+              Your Landlord
+            </Typography>
+          </Box>
+
+          {/* Landlord Menu Items */}
+          <List sx={{ py: 0 }}>
+            {landlordMenuItems.map((item, index) => (
+              <ListItem 
+                key={index}
+                onClick={() => {
+                  item.action();
+                  onClose();
+                }}
+                sx={{
+                  py: 1.5,
+                  px: 3,
+                  cursor: 'pointer',
+                  '&:hover': {
+                    bgcolor: 'rgba(255, 255, 255, 0.1)'
+                  }
+                }}
+              >
+                <ListItemIcon sx={{ minWidth: 40 }}>
+                  {item.badge ? (
+                    <Badge badgeContent={item.badge} color="error">
+                      <item.icon size={20} color="white" />
+                    </Badge>
+                  ) : (
+                    <item.icon size={20} color="white" />
+                  )}
+                </ListItemIcon>
+                <ListItemText 
+                  primary={item.text}
+                  primaryTypographyProps={{
+                    fontSize: '0.95rem',
+                    fontWeight: 500,
+                    color: 'white'
+                  }}
+                />
+              </ListItem>
+            ))}
+          </List>
         </Box>
       </Box>
     </Drawer>
