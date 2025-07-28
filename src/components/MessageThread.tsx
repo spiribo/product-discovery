@@ -51,7 +51,7 @@ export const MessageThread: React.FC<MessageThreadProps> = ({
   };
 
   return (
-    <Paper elevation={3} sx={{ maxWidth: 600, mx: 'auto', overflow: 'hidden' }}>
+    <Paper elevation={0} sx={{ height: '100vh', display: 'flex', flexDirection: 'column', borderRadius: 0 }}>
       <Box sx={{ 
         p: 3, 
         bgcolor: 'primary.main', 
@@ -66,7 +66,7 @@ export const MessageThread: React.FC<MessageThreadProps> = ({
         </Typography>
       </Box>
 
-      <List sx={{ p: 0 }}>
+      <List sx={{ p: 0, flex: 1, overflow: 'auto' }}>
         {messages.map((message, index) => (
           <React.Fragment key={message.id}>
             <ListItem

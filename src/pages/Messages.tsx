@@ -48,29 +48,14 @@ const Messages = () => {
       sx={{ 
         minHeight: '100vh', 
         bgcolor: 'background.default',
-        py: 6,
-        px: 2,
-        pb: 10 // Add padding for bottom navigation
+        pb: 8 // Add padding for bottom navigation only
       }}
     >
-      <Container maxWidth="lg">
-        <Box sx={{ textAlign: 'center', mb: 6 }}>
-          <Typography variant="h3" component="h1" gutterBottom sx={{ fontWeight: 'bold' }}>
-            Messages
-          </Typography>
-          <Typography variant="h6" color="text.secondary">
-            Your conversations and communications
-          </Typography>
-        </Box>
-        
-        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-          <MessageThread 
-            messages={sampleMessages}
-            landlordName="John Smith (Property Manager)"
-            tenantName="Sarah Johnson"
-          />
-        </Box>
-      </Container>
+      <MessageThread 
+        messages={sampleMessages}
+        landlordName="John Smith (Property Manager)"
+        tenantName="Sarah Johnson"
+      />
     </Box>
   );
 };
