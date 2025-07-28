@@ -1,9 +1,12 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { CssBaseline } from '@mui/material';
-import Index from "./pages/Index";
+import { CssBaseline, Box } from '@mui/material';
+import Home from "./pages/Home";
+import Personal from "./pages/Personal";
+import Messages from "./pages/Messages";
 import NotFound from "./pages/NotFound";
+import AppBottomNavigation from "./components/BottomNavigation";
 
 const queryClient = new QueryClient();
 
@@ -22,11 +25,16 @@ const App = () => (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Box sx={{ minHeight: '100vh' }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/personal" element={<Personal />} />
+            <Route path="/messages" element={<Messages />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <AppBottomNavigation />
+        </Box>
       </BrowserRouter>
     </ThemeProvider>
   </QueryClientProvider>
