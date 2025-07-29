@@ -4,6 +4,10 @@ import { AccountCircle, ContactSupport, Newspaper, ReportProblem, DeleteOutline,
 import { useNavigate } from 'react-router-dom';
 import AppHeader from '../components/AppHeader';
 import TeaserCarousel from '../components/TeaserCarousel';
+import quartiersbereichImg from '../assets/quartiersbereich.jpg';
+import mietermagazinImg from '../assets/mietermagazin.jpg';
+import gaestewohnungenImg from '../assets/gaestewohnungen.jpg';
+import wohnungsangeboteImg from '../assets/wohnungsangebote.jpg';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -93,7 +97,9 @@ const Home = () => {
               <Box 
                 sx={{ 
                   height: '100%',
-                  bgcolor: 'linear-gradient(135deg, #007070, #4a9999)',
+                  backgroundImage: `linear-gradient(rgba(0, 112, 112, 0.7), rgba(0, 112, 112, 0.7)), url(${quartiersbereichImg})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -110,7 +116,9 @@ const Home = () => {
               <Box 
                 sx={{ 
                   height: '100%',
-                  bgcolor: 'linear-gradient(135deg, #007070, #4a9999)',
+                  backgroundImage: `linear-gradient(rgba(0, 112, 112, 0.7), rgba(0, 112, 112, 0.7)), url(${mietermagazinImg})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -127,7 +135,9 @@ const Home = () => {
               <Box 
                 sx={{ 
                   height: '100%',
-                  bgcolor: 'linear-gradient(135deg, #007070, #4a9999)',
+                  backgroundImage: `linear-gradient(rgba(0, 112, 112, 0.7), rgba(0, 112, 112, 0.7)), url(${gaestewohnungenImg})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -144,7 +154,9 @@ const Home = () => {
               <Box 
                 sx={{ 
                   height: '100%',
-                  bgcolor: 'linear-gradient(135deg, #007070, #4a9999)',
+                  backgroundImage: `linear-gradient(rgba(0, 112, 112, 0.7), rgba(0, 112, 112, 0.7)), url(${wohnungsangeboteImg})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
