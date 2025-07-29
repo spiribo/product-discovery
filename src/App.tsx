@@ -21,7 +21,7 @@ const theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#007070', // Teal theme color
+      main: '#457b9d', // Main theme color
     },
   },
   typography: {

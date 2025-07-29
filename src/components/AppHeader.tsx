@@ -4,7 +4,7 @@ import { Home } from '@mui/icons-material';
 
 const AppHeader = () => {
   return (
-    <AppBar position="sticky" sx={{ bgcolor: '#007070', top: 0, zIndex: 1100 }}>
+    <AppBar position="sticky" sx={{ bgcolor: 'primary.main', top: 0, zIndex: 1100 }}>
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         <Typography variant="h6" component="div" sx={{ fontWeight: 500 }}>
           Mein Zuhause
