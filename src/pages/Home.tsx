@@ -74,15 +74,24 @@ const Home = () => {
                   <Card 
                     key={index} 
                     sx={{ 
-                      textAlign: 'center', 
-                      p: 2, 
+                      aspectRatio: '1/1',
                       cursor: 'pointer',
-                      minHeight: 120,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
                       '&:hover': { bgcolor: 'rgba(0,112,112,0.05)' }
                     }}
                     onClick={() => navigate(service.path)}
                   >
-                    <CardContent sx={{ p: 3, '&:last-child': { pb: 3 } }}>
+                    <CardContent sx={{ 
+                      p: 3, 
+                      '&:last-child': { pb: 3 },
+                      textAlign: 'center',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}>
                       <service.icon sx={{ fontSize: 40, color: '#007070', mb: 1 }} />
                       <Typography variant="body2" sx={{ fontWeight: 500 }}>
                         {service.label}
