@@ -39,7 +39,7 @@ const TeaserCarousel = () => {
         position: 'relative',
         aspectRatio: '2/1',
         overflow: 'hidden',
-        maxWidth: { xs: '100%', md: '768px' },
+        maxWidth: { xs: '100%', md: '900px' },
         mx: 'auto'
       }}
     >
