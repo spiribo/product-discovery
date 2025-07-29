@@ -5,10 +5,7 @@ import { Home } from '@mui/icons-material';
 const AppHeader = () => {
   return (
     <AppBar position="sticky" sx={{ bgcolor: 'primary.main', top: 0, zIndex: 1100 }}>
-      <Toolbar sx={{ justifyContent: 'space-between' }}>
-        <Typography variant="h6" component="div" sx={{ fontWeight: 500 }}>
-          Mein Zuhause
-        </Typography>
+      <Toolbar sx={{ justifyContent: 'flex-end' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <Typography variant="body2">
             123456789-100
