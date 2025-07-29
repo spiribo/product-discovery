@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Typography, Card, CardContent, Chip, Container } from '@mui/material';
 import { AccountCircle, ContactSupport, Newspaper, ReportProblem, DeleteOutline, Warning } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
-import AppHeader from '../components/AppHeader';
+
 import TeaserCarousel from '../components/TeaserCarousel';
 import quartiersbereichImg from '../assets/quartiersbereich.jpg';
 import mietermagazinImg from '../assets/mietermagazin.jpg';
@@ -22,9 +22,7 @@ const Home = () => {
   ];
 
   return (
-    <Box>
-      <AppHeader />
-      <Box sx={{ bgcolor: 'background.default', pb: 10 }}>
+    <Box sx={{ bgcolor: 'background.default', pb: 10 }}>
         {/* Teaser Carousel */}
         <TeaserCarousel />
 
@@ -186,7 +184,6 @@ const Home = () => {
             </Box>
           </Box>
         </Container>
-      </Box>
     </Box>
   );
 };
