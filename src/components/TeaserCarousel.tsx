@@ -1,27 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
+import { useTheme, alpha } from '@mui/material/styles';
+import { themeExtensions } from '../theme';
 
 const TeaserCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const theme = useTheme();
 
   const slides = [
     {
       id: 1,
       title: 'Schön, dass Du da bist!',
       image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=400&fit=crop',
-      overlay: 'rgba(0, 112, 112, 0.8)'
+      overlay: themeExtensions.overlays.primary
     },
     {
       id: 2,
       title: 'Willkommen in Deinem Zuhause',
       image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=400&fit=crop',
-      overlay: 'rgba(0, 112, 112, 0.8)'
+      overlay: themeExtensions.overlays.primary
     },
     {
       id: 3,
       title: 'Deine Wohlfühloase wartet',
       image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&h=400&fit=crop',
-      overlay: 'rgba(0, 112, 112, 0.8)'
+      overlay: themeExtensions.overlays.primary
     }
   ];
 
@@ -111,7 +114,7 @@ const TeaserCarousel = () => {
               width: 8, 
               height: 8, 
               borderRadius: '50%', 
-              bgcolor: currentSlide === index ? 'white' : 'rgba(255,255,255,0.5)',
+              bgcolor: currentSlide === index ? 'common.white' : alpha('#ffffff', 0.5),
               cursor: 'pointer',
               transition: 'background-color 0.3s ease'
             }}

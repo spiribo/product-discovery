@@ -1,8 +1,9 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import { CssBaseline, Box } from '@mui/material';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { theme } from './theme';
 import Home from "./pages/Home";
 import Personal from "./pages/Personal";
 import Messages from "./pages/Messages";
@@ -15,19 +16,6 @@ import AppBottomNavigation from "./components/BottomNavigation";
 import AppHeader from "./components/AppHeader";
 
 const queryClient = new QueryClient();
-
-// Create Material UI theme
-const theme = createTheme({
-  palette: {
-    mode: 'light',
-    primary: {
-      main: '#457b9d', // Main theme color
-    },
-  },
-  typography: {
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-  },
-});
 
 const AppContent = () => {
   const { isAuthenticated } = useAuth();

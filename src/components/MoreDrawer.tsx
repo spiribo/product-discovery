@@ -25,7 +25,8 @@ import {
   Close,
   ExitToApp
 } from '@mui/icons-material';
-import { useAuth } from '@/contexts/AuthContext';
+import { useAuth } from '../contexts/AuthContext';
+import { useTheme } from '@mui/material/styles';
 
 interface MoreDrawerProps {
   open: boolean;
@@ -34,6 +35,7 @@ interface MoreDrawerProps {
 
 const MoreDrawer: React.FC<MoreDrawerProps> = ({ open, onClose }) => {
   const { logout, user } = useAuth();
+  const theme = useTheme();
   const topMenuItems = [
     { icon: Person, text: 'Kundenaccount', action: () => console.log('Kundenaccount clicked') },
     { icon: Home, text: 'Mein Zuhause', action: () => console.log('Mein Zuhause clicked') },
@@ -115,15 +117,15 @@ const MoreDrawer: React.FC<MoreDrawerProps> = ({ open, onClose }) => {
 
         {/* Landlord Section */}
         <Box sx={{ 
-          bgcolor: '#007070', // Using main theme color
-          color: 'white',
+          bgcolor: 'primary.main',
+          color: 'primary.contrastText',
           flex: 1
         }}>
           {/* Section Header */}
           <Box sx={{ p: 3, pb: 2 }}>
             <Typography variant="h6" sx={{ 
               fontWeight: 600, 
-              color: 'white',
+              color: 'inherit',
               fontFamily: 'Roboto'
             }}>
               Ihr Vermieter
@@ -144,17 +146,17 @@ const MoreDrawer: React.FC<MoreDrawerProps> = ({ open, onClose }) => {
                   px: 3,
                   cursor: 'pointer',
                   '&:hover': {
-                    bgcolor: 'rgba(255, 255, 255, 0.1)'
+                    bgcolor: theme.palette.primary.dark
                   }
                 }}
               >
                 <ListItemIcon sx={{ minWidth: 40 }}>
                   {item.badge ? (
                     <Badge badgeContent={item.badge} color="error">
-                      <item.icon sx={{ color: 'white' }} />
+                      <item.icon sx={{ color: 'inherit' }} />
                     </Badge>
                   ) : (
-                    <item.icon sx={{ color: 'white' }} />
+                    <item.icon sx={{ color: 'inherit' }} />
                   )}
                 </ListItemIcon>
                 <ListItemText 
@@ -162,7 +164,7 @@ const MoreDrawer: React.FC<MoreDrawerProps> = ({ open, onClose }) => {
                   primaryTypographyProps={{
                     fontSize: '0.95rem',
                     fontWeight: 500,
-                    color: 'white',
+                    color: 'inherit',
                     fontFamily: 'Roboto'
                   }}
                 />
@@ -183,19 +185,19 @@ const MoreDrawer: React.FC<MoreDrawerProps> = ({ open, onClose }) => {
                 cursor: 'pointer',
                 borderRadius: 1,
                 '&:hover': {
-                  bgcolor: 'rgba(255, 255, 255, 0.1)'
+                  bgcolor: theme.palette.primary.dark
                 }
               }}
             >
               <ListItemIcon sx={{ minWidth: 40 }}>
-                <ExitToApp sx={{ color: 'white' }} />
+                <ExitToApp sx={{ color: 'inherit' }} />
               </ListItemIcon>
               <ListItemText 
                 primary="Abmelden"
                 primaryTypographyProps={{
                   fontSize: '0.95rem',
                   fontWeight: 500,
-                  color: 'white',
+                  color: 'inherit',
                   fontFamily: 'Roboto'
                 }}
               />

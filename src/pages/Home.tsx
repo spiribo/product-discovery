@@ -2,6 +2,8 @@ import React from 'react';
 import { Box, Typography, Card, CardContent, Chip, Container } from '@mui/material';
 import { AccountCircle, ContactSupport, Newspaper, ReportProblem, DeleteOutline, Warning } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
+import { useTheme } from '@mui/material/styles';
+import { themeExtensions } from '../theme';
 
 import TeaserCarousel from '../components/TeaserCarousel';
 import quartiersbereichImg from '../assets/quartiersbereich.jpg';
@@ -11,6 +13,7 @@ import wohnungsangeboteImg from '../assets/wohnungsangebote.jpg';
 
 const Home = () => {
   const navigate = useNavigate();
+  const theme = useTheme();
 
   const services = [
     { icon: AccountCircle, label: 'Kundenkonto', path: '/personal' },
@@ -31,7 +34,7 @@ const Home = () => {
           <Box sx={{ px: 2 }}>
             {/* Aktuelles Section */}
             <Box sx={{ mt: 3, mb: 4 }}>
-              <Typography variant="h6" gutterBottom sx={{ color: '#666', mb: 2 }}>
+              <Typography variant="h6" gutterBottom sx={{ color: 'text.secondary', mb: 2 }}>
                 Aktuelles
               </Typography>
               <Card sx={{ p: 0, minHeight: 160 }}>
@@ -51,8 +54,8 @@ const Home = () => {
                     Selbstgemachte Geschenke sind doch die Schönsten! Es fehlt noch eine kleine Aufmerksamkeit für einen lieben Menschen?
                   </Typography>
                   <Box sx={{ display: 'flex', gap: 1 }}>
-                    <Chip label="MEHR ERFAHREN" size="small" sx={{ bgcolor: '#007070', color: 'white', fontSize: '0.7rem' }} />
-                    <Chip label="ALLE BEITRÄGE" variant="outlined" size="small" sx={{ fontSize: '0.7rem' }} />
+                    <Chip label="MEHR ERFAHREN" size="small" sx={{ bgcolor: 'primary.main', color: 'primary.contrastText' }} />
+                    <Chip label="ALLE BEITRÄGE" variant="outlined" size="small" />
                   </Box>
                 </CardContent>
               </Card>
@@ -60,7 +63,7 @@ const Home = () => {
 
             {/* Mein GBC Cockpit Section */}
             <Box sx={{ mb: 4 }}>
-              <Typography variant="h6" gutterBottom sx={{ color: '#007070', fontWeight: 'bold', mb: 3 }}>
+              <Typography variant="h6" gutterBottom sx={{ color: 'primary.main', fontWeight: 'bold', mb: 3 }}>
                 Mein GBC Cockpit
               </Typography>
               <Box sx={{ 
@@ -81,7 +84,7 @@ const Home = () => {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      '&:hover': { bgcolor: 'rgba(0,112,112,0.05)' }
+                      '&:hover': { bgcolor: 'action.hover' }
                     }}
                     onClick={() => navigate(service.path)}
                   >
@@ -94,7 +97,7 @@ const Home = () => {
                       alignItems: 'center',
                       justifyContent: 'center'
                     }}>
-                      <service.icon sx={{ fontSize: 40, color: '#007070', mb: 1 }} />
+                      <service.icon sx={{ fontSize: 40, color: 'primary.main', mb: 1 }} />
                       <Typography variant="body2" sx={{ fontWeight: 500 }}>
                         {service.label}
                       </Typography>
@@ -110,7 +113,7 @@ const Home = () => {
                 <Box 
                   sx={{ 
                     height: '100%',
-                    backgroundImage: `linear-gradient(rgba(0, 112, 112, 0.7), rgba(0, 112, 112, 0.7)), url(${quartiersbereichImg})`,
+                    backgroundImage: themeExtensions.gradients.primaryOverlay(quartiersbereichImg),
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     display: 'flex',
@@ -129,7 +132,7 @@ const Home = () => {
                 <Box 
                   sx={{ 
                     height: '100%',
-                    backgroundImage: `linear-gradient(rgba(0, 112, 112, 0.7), rgba(0, 112, 112, 0.7)), url(${mietermagazinImg})`,
+                    backgroundImage: themeExtensions.gradients.primaryOverlay(mietermagazinImg),
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     display: 'flex',
@@ -148,7 +151,7 @@ const Home = () => {
                 <Box 
                   sx={{ 
                     height: '100%',
-                    backgroundImage: `linear-gradient(rgba(0, 112, 112, 0.7), rgba(0, 112, 112, 0.7)), url(${gaestewohnungenImg})`,
+                    backgroundImage: themeExtensions.gradients.primaryOverlay(gaestewohnungenImg),
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     display: 'flex',
@@ -167,7 +170,7 @@ const Home = () => {
                 <Box 
                   sx={{ 
                     height: '100%',
-                    backgroundImage: `linear-gradient(rgba(0, 112, 112, 0.7), rgba(0, 112, 112, 0.7)), url(${wohnungsangeboteImg})`,
+                    backgroundImage: themeExtensions.gradients.primaryOverlay(wohnungsangeboteImg),
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     display: 'flex',
