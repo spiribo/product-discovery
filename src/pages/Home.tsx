@@ -3,6 +3,7 @@ import { Box, Typography, Card, CardContent, Chip } from '@mui/material';
 import { AccountCircle, ContactSupport, Newspaper, ReportProblem, DeleteOutline, Warning } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import AppHeader from '../components/AppHeader';
+import TeaserCarousel from '../components/TeaserCarousel';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -20,29 +21,8 @@ const Home = () => {
     <Box>
       <AppHeader />
       <Box sx={{ bgcolor: 'background.default', pb: 10 }}>
-        {/* Header Section */}
-        <Box 
-          sx={{ 
-            bgcolor: '#007070',
-            color: 'white',
-            p: 3,
-            textAlign: 'center',
-            position: 'relative',
-            minHeight: '200px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center'
-          }}
-        >
-          <Typography variant="h4" component="h1" gutterBottom sx={{ fontWeight: 'bold' }}>
-            Schön, dass Du da bist!
-          </Typography>
-          <Box sx={{ display: 'flex', justifyContent: 'center', gap: 1, mt: 2 }}>
-            <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: 'white' }} />
-            <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: 'rgba(255,255,255,0.5)' }} />
-            <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: 'rgba(255,255,255,0.5)' }} />
-          </Box>
-        </Box>
+        {/* Teaser Carousel */}
+        <TeaserCarousel />
 
         {/* Content */}
         <Box sx={{ px: 2 }}>
