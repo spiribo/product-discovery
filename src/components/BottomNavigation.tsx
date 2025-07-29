@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { BottomNavigation, BottomNavigationAction, Paper } from '@mui/material';
-import { Home, ReportProblem, ContactSupport, Mail } from '@mui/icons-material';
-import { MoreHorizontal } from 'lucide-react';
+import { Home, ReportProblem, ContactSupport, Mail, MoreHoriz } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import MoreDrawer from './MoreDrawer';
 
@@ -61,7 +60,7 @@ const AppBottomNavigation = () => {
           <BottomNavigationAction label="Postfach" icon={<Mail />} />
           <BottomNavigationAction 
             label="Mehr"
-            icon={<MoreHorizontal size={24} />} 
+            icon={<MoreHoriz />} 
           />
         </BottomNavigation>
       </Paper>
