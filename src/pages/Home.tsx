@@ -35,8 +35,8 @@ const Home = () => {
             <Typography variant="h6" gutterBottom sx={{ color: '#666', mb: 2 }}>
               Aktuelles
             </Typography>
-            <Card sx={{ p: 0 }}>
-              <CardContent sx={{ p: 2 }}>
+            <Card sx={{ p: 0, minHeight: 160 }}>
+              <CardContent sx={{ p: 3 }}>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 1 }}>
                   <Typography variant="caption" color="text.secondary">
                     07.02.2024
@@ -76,11 +76,12 @@ const Home = () => {
                     textAlign: 'center', 
                     p: 2, 
                     cursor: 'pointer',
+                    minHeight: 120,
                     '&:hover': { bgcolor: 'rgba(0,112,112,0.05)' }
                   }}
                   onClick={() => navigate(service.path)}
                 >
-                  <CardContent sx={{ p: 2, '&:last-child': { pb: 2 } }}>
+                  <CardContent sx={{ p: 3, '&:last-child': { pb: 3 } }}>
                     <service.icon sx={{ fontSize: 40, color: '#007070', mb: 1 }} />
                     <Typography variant="body2" sx={{ fontWeight: 500 }}>
                       {service.label}
@@ -93,7 +94,7 @@ const Home = () => {
 
           {/* Image Cards Section */}
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-            <Card sx={{ position: 'relative', height: 120, overflow: 'hidden' }}>
+            <Card sx={{ position: 'relative', height: 160, overflow: 'hidden' }}>
               <Box 
                 sx={{ 
                   height: '100%',
@@ -112,7 +113,7 @@ const Home = () => {
               </Box>
             </Card>
 
-            <Card sx={{ position: 'relative', height: 120, overflow: 'hidden' }}>
+            <Card sx={{ position: 'relative', height: 160, overflow: 'hidden' }}>
               <Box 
                 sx={{ 
                   height: '100%',
@@ -131,7 +132,7 @@ const Home = () => {
               </Box>
             </Card>
 
-            <Card sx={{ position: 'relative', height: 120, overflow: 'hidden' }}>
+            <Card sx={{ position: 'relative', height: 160, overflow: 'hidden' }}>
               <Box 
                 sx={{ 
                   height: '100%',
@@ -150,7 +151,7 @@ const Home = () => {
               </Box>
             </Card>
 
-            <Card sx={{ position: 'relative', height: 120, overflow: 'hidden' }}>
+            <Card sx={{ position: 'relative', height: 160, overflow: 'hidden' }}>
               <Box 
                 sx={{ 
                   height: '100%',
