@@ -37,7 +37,7 @@ const TeaserCarousel = () => {
     <Box 
       sx={{ 
         position: 'relative',
-        minHeight: '200px',
+        aspectRatio: '2/1',
         overflow: 'hidden'
       }}
     >
