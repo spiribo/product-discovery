@@ -12,6 +12,7 @@ import Postfach from "./pages/Postfach";
 import LoginPage from "./pages/LoginPage";
 import NotFound from "./pages/NotFound";
 import AppBottomNavigation from "./components/BottomNavigation";
+import AppHeader from "./components/AppHeader";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,7 @@ const AppContent = () => {
 
   return (
     <Box sx={{ minHeight: '100vh' }}>
+      <AppHeader />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/personal" element={<Personal />} />
