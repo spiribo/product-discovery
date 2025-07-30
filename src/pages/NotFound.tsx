@@ -32,8 +32,7 @@ const NotFound = () => {
             Ups! Seite nicht gefunden
           </Typography>
           <Button
-            component={Link}
-            to="/"
+            onClick={() => console.log('Home clicked')}
             variant="contained"
             startIcon={<Home />}
             size="large"

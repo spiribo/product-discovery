@@ -115,7 +115,7 @@ export const PersonCard = ({ person, className = "" }: PersonCardProps) => {
             <Box display="flex" alignItems="center" gap={1.5} mb={1.5}>
               <Email fontSize="small" color="action" />
               <Link 
-                href={`mailto:${person.email}`}
+                href="#"
                 color="inherit"
                 underline="hover"
                 sx={{ 
@@ -133,7 +133,7 @@ export const PersonCard = ({ person, className = "" }: PersonCardProps) => {
             <Box display="flex" alignItems="center" gap={1.5} mb={1.5}>
               <Phone fontSize="small" color="action" />
               <Link 
-                href={`tel:${person.phone}`}
+                href="#"
                 color="inherit"
                 underline="hover"
                 sx={{ '&:hover': { color: 'primary.main' } }}
@@ -147,7 +147,7 @@ export const PersonCard = ({ person, className = "" }: PersonCardProps) => {
             <Box display="flex" alignItems="center" gap={1.5} mb={1.5}>
               <Smartphone fontSize="small" color="action" />
               <Link 
-                href={`tel:${person.mobile}`}
+                href="#"
                 color="inherit"
                 underline="hover"
                 sx={{ '&:hover': { color: 'primary.main' } }}
@@ -161,9 +161,7 @@ export const PersonCard = ({ person, className = "" }: PersonCardProps) => {
             <Box display="flex" alignItems="center" gap={1.5} mb={1.5}>
               <Language fontSize="small" color="action" />
               <Link 
-                href={person.url}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
                 color="inherit"
                 underline="hover"
                 sx={{ 

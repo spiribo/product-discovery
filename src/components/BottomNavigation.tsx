@@ -29,16 +29,16 @@ const AppBottomNavigation = () => {
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     switch (newValue) {
       case 0:
-        navigate('/');
+        console.log('Home clicked');
         break;
       case 1:
-        navigate('/schaden');
+        console.log('Schaden clicked');
         break;
       case 2:
-        navigate('/anliegen');
+        console.log('Anliegen clicked');
         break;
       case 3:
-        navigate('/postfach');
+        console.log('Postfach clicked');
         break;
       case 4:
         setDrawerOpen(true);

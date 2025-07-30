@@ -16,12 +16,12 @@ const Home = () => {
   const theme = useTheme();
 
   const services = [
-    { icon: AccountCircle, label: 'Kundenkonto', path: '/personal' },
-    { icon: ContactSupport, label: 'Anliegen', path: '/anliegen' },
-    { icon: Newspaper, label: 'Neuigkeiten', path: '/messages' },
-    { icon: ReportProblem, label: 'Schadencenter', path: '/schaden' },
-    { icon: DeleteOutline, label: 'Sperrmüll', path: '/postfach' },
-    { icon: Warning, label: 'Notfall', path: '/postfach' },
+    { icon: AccountCircle, label: 'Kundenkonto', action: () => console.log('Kundenkonto clicked') },
+    { icon: ContactSupport, label: 'Anliegen', action: () => console.log('Anliegen clicked') },
+    { icon: Newspaper, label: 'Neuigkeiten', action: () => console.log('Neuigkeiten clicked') },
+    { icon: ReportProblem, label: 'Schadencenter', action: () => console.log('Schadencenter clicked') },
+    { icon: DeleteOutline, label: 'Sperrmüll', action: () => console.log('Sperrmüll clicked') },
+    { icon: Warning, label: 'Notfall', action: () => console.log('Notfall clicked') },
   ];
 
   return (
@@ -86,7 +86,7 @@ const Home = () => {
                       justifyContent: 'center',
                       '&:hover': { bgcolor: 'action.hover' }
                     }}
-                    onClick={() => navigate(service.path)}
+                    onClick={() => service.action()}
                   >
                     <CardContent sx={{ 
                       p: 3, 
