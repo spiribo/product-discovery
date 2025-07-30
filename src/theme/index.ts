@@ -1,33 +1,33 @@
-import { createTheme, alpha } from '@mui/material/styles';
+import { createTheme, alpha } from "@mui/material/styles"
 
 // Define the color palette
 const palette = {
   primary: {
-    main: '#457b9d',
-    light: '#6ba0c4',
-    dark: '#2f5470',
-    contrastText: '#ffffff',
+    main: "#1e455e",
+    light: "#6ba0c4",
+    dark: "#2f5470",
+    contrastText: "#ffffff",
   },
   secondary: {
-    main: '#f0f4f7',
-    light: '#ffffff',
-    dark: '#bdc3c7',
-    contrastText: '#333333',
+    main: "#f0f4f7",
+    light: "#ffffff",
+    dark: "#bdc3c7",
+    contrastText: "#333333",
   },
   background: {
-    default: '#fafafa',
-    paper: '#ffffff',
+    default: "#fafafa",
+    paper: "#ffffff",
   },
   text: {
-    primary: '#333333',
-    secondary: '#666666',
+    primary: "#333333",
+    secondary: "#666666",
   },
   action: {
-    hover: alpha('#457b9d', 0.05),
-    selected: alpha('#457b9d', 0.1),
+    hover: alpha("#457b9d", 0.05),
+    selected: alpha("#457b9d", 0.1),
   },
-  divider: '#e0e0e0',
-};
+  divider: "#e0e0e0",
+}
 
 // Create the theme
 export const theme = createTheme({
@@ -46,7 +46,7 @@ export const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          textTransform: 'none',
+          textTransform: "none",
           fontWeight: 500,
         },
       },
@@ -54,9 +54,9 @@ export const theme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-          '&:hover': {
-            boxShadow: '0 4px 16px rgba(0,0,0,0.15)',
+          boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+          "&:hover": {
+            boxShadow: "0 4px 16px rgba(0,0,0,0.15)",
           },
         },
       },
@@ -64,12 +64,12 @@ export const theme = createTheme({
     MuiChip: {
       styleOverrides: {
         root: {
-          fontSize: '0.7rem',
+          fontSize: "0.7rem",
         },
       },
     },
   },
-});
+})
 
 // Additional theme extensions for custom usage
 export const themeExtensions = {
@@ -77,14 +77,17 @@ export const themeExtensions = {
     primary: alpha(palette.primary.main, 0.8),
     primaryLight: alpha(palette.primary.main, 0.7),
     primarySubtle: alpha(palette.primary.main, 0.1),
-    white: alpha('#ffffff', 0.5),
-    whiteHover: alpha('#ffffff', 0.1),
+    white: alpha("#ffffff", 0.5),
+    whiteHover: alpha("#ffffff", 0.1),
   },
   gradients: {
     primary: `linear-gradient(${palette.primary.dark}, ${palette.primary.main})`,
-    primaryOverlay: (imageUrl: string) => 
-      `linear-gradient(${alpha(palette.primary.main, 0.7)}, ${alpha(palette.primary.main, 0.7)}), url(${imageUrl})`,
+    primaryOverlay: (imageUrl: string) =>
+      `linear-gradient(${alpha(palette.primary.main, 0.7)}, ${alpha(
+        palette.primary.main,
+        0.7
+      )}), url(${imageUrl})`,
   },
-};
+}
 
-export default theme;
+export default theme
