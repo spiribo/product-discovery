@@ -7,18 +7,18 @@ const TeaserCarousel = () => {
   const theme = useTheme();
   const slides = [{
     id: 1,
-    title: 'Schön, dass Du da bist!',
-    image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=400&fit=crop',
+    title: 'Willkommen bei unseren Katzenfreunden!',
+    image: 'https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=800&h=400&fit=crop',
     overlay: themeExtensions.overlays.primary
   }, {
     id: 2,
-    title: 'Willkommen in Deinem Zuhause',
-    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=400&fit=crop',
+    title: 'Katzen machen alles besser',
+    image: 'https://images.unsplash.com/photo-15352686477755-300dbf3d78d1?w=800&h=400&fit=crop',
     overlay: themeExtensions.overlays.primary
   }, {
     id: 3,
-    title: 'Deine Wohlfühloase wartet',
-    image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&h=400&fit=crop',
+    title: 'Deine Samtpfoten warten auf dich',
+    image: 'https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=800&h=400&fit=crop',
     overlay: themeExtensions.overlays.primary
   }];
   useEffect(() => {

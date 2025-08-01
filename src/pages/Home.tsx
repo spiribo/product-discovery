@@ -48,14 +48,14 @@ const Home = () => {
                     </Typography>
                   </Box>
                   <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 600 }}>
-                    DIY-Idee: Winterliche Seife zum Verschenken
+                    Katzen-News: Neue Katzenbilder sind da! 🐱
                   </Typography>
                   <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                    Selbstgemachte Geschenke sind doch die Schönsten! Es fehlt noch eine kleine Aufmerksamkeit für einen lieben Menschen?
+                    Unsere pelzigen Freunde haben wieder neue Abenteuer erlebt! Schau dir die süßesten Katzenmomente an und lass dich verzaubern.
                   </Typography>
                   <Box sx={{ display: 'flex', gap: 1 }}>
-                    <Chip label="MEHR ERFAHREN" size="small" sx={{ bgcolor: 'primary.main', color: 'primary.contrastText' }} />
-                    <Chip label="ALLE BEITRÄGE" variant="outlined" size="small" />
+                    <Chip label="MEHR KATZEN" size="small" sx={{ bgcolor: 'primary.main', color: 'primary.contrastText' }} />
+                    <Chip label="ALLE KATZENBILDER" variant="outlined" size="small" />
                   </Box>
                 </CardContent>
               </Card>
@@ -64,7 +64,7 @@ const Home = () => {
             {/* Mein GBC Cockpit Section */}
             <Box sx={{ mb: 4 }}>
               <Typography variant="h6" gutterBottom sx={{ color: 'primary.main', fontWeight: 'bold', mb: 3 }}>
-                Mein GBC Cockpit
+                Mein Katzen Cockpit 🐾
               </Typography>
               <Box sx={{ 
                 display: 'grid', 
@@ -123,7 +123,7 @@ const Home = () => {
                   }}
                 >
                   <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-                    QUARTIERSBEREICH
+                    KATZEN-QUARTIER
                   </Typography>
                 </Box>
               </Card>
@@ -142,7 +142,7 @@ const Home = () => {
                   }}
                 >
                   <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-                    DEIN MIETERMAGAZIN
+                    KATZEN-MAGAZIN
                   </Typography>
                 </Box>
               </Card>
@@ -161,7 +161,7 @@ const Home = () => {
                   }}
                 >
                   <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-                    GÄSTEWOHNUNGEN
+                    KATZEN-HOTEL
                   </Typography>
                 </Box>
               </Card>
@@ -180,7 +180,7 @@ const Home = () => {
                   }}
                 >
                   <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-                    WOHNUNGSANGEBOTE
+                    KATZEN-HÄUSER
                   </Typography>
                 </Box>
               </Card>

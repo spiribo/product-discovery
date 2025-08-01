@@ -1,6 +1,7 @@
 import React from 'react';
 import { MessageThread } from "@/components/MessageThread";
 import { Box, Typography, Container } from '@mui/material';
+import CatCard from '../components/CatCard';
 
 const Messages = () => {
   // Sample messages for demonstration
@@ -51,6 +52,25 @@ const Messages = () => {
         pb: 8 // Add padding for bottom navigation only
       }}
     >
+      {/* Cat Header */}
+      <Container maxWidth="md" sx={{ pt: 2, pb: 2 }}>
+        <Typography variant="h5" sx={{ textAlign: 'center', color: 'primary.main', fontWeight: 'bold' }}>
+          Katzen-Chat 💬🐾
+        </Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mt: 2, flexWrap: 'wrap' }}>
+          <CatCard 
+            catName="Fluffy"
+            catImage="https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=300&h=200&fit=crop"
+            catDescription="Der flauschigste Chat-Moderator!"
+          />
+          <CatCard 
+            catName="Whiskers"
+            catImage="https://images.unsplash.com/photo-15352686477755-300dbf3d78d1?w=300&h=200&fit=crop"
+            catDescription="Unser niedlichster Nachrichten-Assistent!"
+          />
+        </Box>
+      </Container>
+
       <MessageThread 
         messages={sampleMessages}
         landlordName="John Smith (Property Manager)"
